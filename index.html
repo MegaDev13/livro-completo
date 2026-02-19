@@ -893,6 +893,9 @@
     </div>
     <div class="toc-grid">
       <a class="toc-item" href="#cap1"><span class="toc-num">01</span><span class="toc-text">Fundamentos do Sistema</span><span class="toc-arrow">→</span></a>
+      <a class="toc-item" href="#racas"><span class="toc-num">✦</span><span class="toc-text">Raças de Herança</span><span class="toc-arrow">→</span></a>
+      <a class="toc-item" href="#racas-classicas" style="padding-left:2.5rem;opacity:0.75;"><span class="toc-num" style="font-size:0.65em;letter-spacing:0;">CLS</span><span class="toc-text" style="font-size:0.88em;">Humano · Elfo · Anão · Halfling · Tiefling · Draconato · Meio-Elfo</span><span class="toc-arrow">→</span></a>
+      <a class="toc-item" href="#racas-originais" style="padding-left:2.5rem;opacity:0.75;"><span class="toc-num" style="font-size:0.65em;letter-spacing:0;">ORI</span><span class="toc-text" style="font-size:0.88em;">Cinzeiro · Moldado · Selvático · Sem-Nome · Gnomo</span><span class="toc-arrow">→</span></a>
       <a class="toc-item" href="#cap2"><span class="toc-num">02</span><span class="toc-text">Sistema de Combate</span><span class="toc-arrow">→</span></a>
       <a class="toc-item" href="#cap3"><span class="toc-num">03</span><span class="toc-text">Sistema de Perícias</span><span class="toc-arrow">→</span></a>
       <a class="toc-item" href="#cap4"><span class="toc-num">04</span><span class="toc-text">Sistema de Magia</span><span class="toc-arrow">→</span></a>
@@ -1087,6 +1090,413 @@ Exemplos:
 
   </div><!-- /content-wrapper -->
 </section>
+
+<div class="chapter-sep"><span class="sep-ornament">— ✦ —</span></div>
+
+<!-- ═══════════════════════════ RAÇAS ═══ -->
+<section class="chapter-section" id="racas">
+  <div class="chapter-hero">
+    <div class="chapter-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1400&q=80')"></div>
+    <div class="chapter-hero-overlay"></div>
+    <div class="chapter-hero-content">
+      <div class="chapter-label">Capítulo</div>
+      <h2 class="chapter-title">Raças de Herança</h2>
+      <p class="chapter-desc">12 raças — Clássicas e Originais — Balanceadas para o Sistema</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+
+    <p>Cada raça em Herança define não apenas a aparência e história do personagem, mas seus limites e vantagens mecânicas dentro do sistema. Toda raça possui <strong>Traços Passivos</strong> (sempre ativos), <strong>Habilidade Racial</strong> (ativa, com custo ou limitação) e <strong>Desvantagem Inerente</strong> (fraqueza que não pode ser removida por magia ou item antes do Nível 15).</p>
+
+    <div class="info-box">
+      <div class="info-box-title">📐 Estrutura de Raça</div>
+      <p><strong>Atributos Raciais:</strong> Bônus fixos aplicados na criação do personagem.</p>
+      <p><strong>Traços Passivos:</strong> Benefícios permanentes e automáticos.</p>
+      <p><strong>Habilidade Racial:</strong> Poder ativo com custo de Mana, PA ou uso limitado por descanso.</p>
+      <p><strong>Desvantagem Inerente:</strong> Fraqueza mecânica obrigatória — parte do equilíbrio da raça.</p>
+    </div>
+
+    <!-- ═══ RAÇAS CLÁSSICAS ═══ -->
+    <h2 class="section-title" id="racas-classicas">Raças Clássicas</h2>
+
+
+    <!-- HUMANO -->
+    <div class="spell-card" id="raca-humano">
+      <div class="spell-header" style="background:linear-gradient(135deg,#4a3728 0%,#2a1f15 100%);">
+        <div class="spell-name"><a href="#raca-humano" style="color:inherit;text-decoration:none;border-bottom:1px dotted rgba(201,168,76,0.4);">HUMANO — O Adaptável</a></div>
+        <span class="spell-level-badge">Clássica · Generalista</span>
+      </div>
+      <div class="spell-body">
+        <p style="font-style:italic;opacity:0.7;margin-bottom:1rem;">"Onde elfos têm séculos e anões têm pedra, humanos têm ambição — e isso muda tudo."</p>
+        <div class="spell-meta">
+          <div class="spell-meta-item"><span class="spell-meta-label">FOR</span><span class="spell-meta-value">+1</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">DES</span><span class="spell-meta-value">+1</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">CON</span><span class="spell-meta-value">+1</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">INT</span><span class="spell-meta-value">+1</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">SAB</span><span class="spell-meta-value">+1</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">CAR</span><span class="spell-meta-value">+1</span></div>
+        </div>
+        <div class="spell-effect">
+          <strong>🟢 Traços Passivos:</strong><br>
+          • <strong>Versatilidade:</strong> Começa com <strong>+1 PA permanente</strong> além do total base da classe.<br>
+          • <strong>Aprendiz Universal:</strong> Começa com <strong>5 perícias treinadas</strong> ao invés de 4.<br>
+          • <strong>Resistência Mortal:</strong> 1×/descanso longo, quando chegar a 0 PV, fica em 1 PV (não ativa em dano massivo ≥ PV máximo).<br><br>
+          <strong>🔵 Habilidade Racial — Determinação (0 Mana · Reação):</strong><br>
+          Após falhar em qualquer teste, ataque ou save, você pode rerolar o dado e ficar com o segundo resultado. Uso: <strong>1×/descanso curto</strong>.<br><br>
+          <strong>🔴 Desvantagem Inerente — Mortalidade:</strong><br>
+          Humanos não possuem resistência natural a nenhum tipo de dano. Qualquer efeito que cause dano de tipo único causa <strong>+1 dano por dado</strong> (ex: 3d6 fogo → 3d6+3) se o humano não tiver resistência adquirida por item ou magia.
+        </div>
+      </div>
+    </div>
+
+    <!-- ELFO -->
+    <div class="spell-card" id="raca-elfo">
+      <div class="spell-header" style="background:linear-gradient(135deg,#1a3a2a 0%,#0d2018 100%);">
+        <div class="spell-name"><a href="#raca-elfo" style="color:inherit;text-decoration:none;border-bottom:1px dotted rgba(201,168,76,0.4);">ELFO — O Eterno</a></div>
+        <span class="spell-level-badge">Clássica · Arcana</span>
+      </div>
+      <div class="spell-body">
+        <p style="font-style:italic;opacity:0.7;margin-bottom:1rem;">"Eles não envelhecem. O que se vê em seus olhos não é sabedoria — é cansaço."</p>
+        <div class="spell-meta">
+          <div class="spell-meta-item"><span class="spell-meta-label">DES</span><span class="spell-meta-value">+3</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">INT</span><span class="spell-meta-value">+2</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">SAB</span><span class="spell-meta-value">+1</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">FOR</span><span class="spell-meta-value">−1</span></div>
+        </div>
+        <div class="spell-effect">
+          <strong>🟢 Traços Passivos:</strong><br>
+          • <strong>Visão Élfica:</strong> Visão no escuro total até 18m; penalidade de luz fraca não se aplica.<br>
+          • <strong>Graça Ancestral:</strong> Vantagem em testes de Percepção e Furtividade. Nunca dorme — em Transe de 4h obtém os benefícios de descanso longo.<br>
+          • <strong>Sangue Arcano:</strong> Começa com <strong>+1 cantrip</strong> extra à escolha. Custo de Mana de cantrips reduzido em 1 (mínimo 0).<br>
+          • <strong>Imunidade a Sono Mágico:</strong> Efeitos de sono (incluindo magias) não funcionam em elfos.<br><br>
+          <strong>🔵 Habilidade Racial — Passo Sombrio (2 Mana · Ação Menor):</strong><br>
+          Teletransporta-se até <strong>9m</strong> para local visível sem provocar ataques de oportunidade. Não funciona em armadura pesada. Uso: <strong>3×/descanso longo</strong>.<br><br>
+          <strong>🔴 Desvantagem Inerente — Fragilidade Mortal:</strong><br>
+          PV máximo sempre <strong>−2 por nível</strong> (um elfo nível 10 tem 20 PV a menos que outras raças equivalentes). Dano de impacto recebido é aumentado em <strong>+2 por dado</strong>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ANÃO -->
+    <div class="spell-card" id="raca-anao">
+      <div class="spell-header" style="background:linear-gradient(135deg,#3a2a1a 0%,#221808 100%);">
+        <div class="spell-name"><a href="#raca-anao" style="color:inherit;text-decoration:none;border-bottom:1px dotted rgba(201,168,76,0.4);">ANÃO — O Inabalável</a></div>
+        <span class="spell-level-badge">Clássica · Resistência</span>
+      </div>
+      <div class="spell-body">
+        <p style="font-style:italic;opacity:0.7;margin-bottom:1rem;">"A pedra não se dobra. O anão também não."</p>
+        <div class="spell-meta">
+          <div class="spell-meta-item"><span class="spell-meta-label">FOR</span><span class="spell-meta-value">+3</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">CON</span><span class="spell-meta-value">+3</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">DES</span><span class="spell-meta-value">−2</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">CAR</span><span class="spell-meta-value">−1</span></div>
+        </div>
+        <div class="spell-effect">
+          <strong>🟢 Traços Passivos:</strong><br>
+          • <strong>Pele de Pedra:</strong> DR natural = 2 (reduz todo dano físico não-mágico em 2).<br>
+          • <strong>Resistência Anã:</strong> Vantagem em saves contra veneno, doença e efeitos de empurrão/derrubar.<br>
+          • <strong>Visão na Penumbra:</strong> Ignora penalidade em ambientes de baixa luminosidade. Visão no escuro até 9m.<br>
+          • <strong>Tenacidade Dracônica:</strong> +2 PV máximos por nível (anão nível 10 = +20 PV).<br><br>
+          <strong>🔵 Habilidade Racial — Vigor de Ferro (0 Mana · Ação Menor):</strong><br>
+          Ativa por <strong>3 rodadas</strong>: Resistência a dano físico (dano ÷2), DR sobe para 5, imune a Caído e Empurrado. Após terminar: <em>Exaustão 1</em> por 2 rodadas. Uso: <strong>1×/descanso curto</strong>.<br><br>
+          <strong>🔴 Desvantagem Inerente — Peso da Pedra:</strong><br>
+          Velocidade base = 7m (humano: 9m). Anões <strong>não podem correr</strong> (ação de Dash) se carregarem carga acima de 60% da capacidade. Magias de escola Ilusão custam <strong>+2 Mana</strong> adicionais para anões (mente literal).
+        </div>
+      </div>
+    </div>
+
+    <!-- HALFLING -->
+    <div class="spell-card" id="raca-halfling">
+      <div class="spell-header" style="background:linear-gradient(135deg,#2a3a1a 0%,#182208 100%);">
+        <div class="spell-name"><a href="#raca-halfling" style="color:inherit;text-decoration:none;border-bottom:1px dotted rgba(201,168,76,0.4);">HALFLING — O Sortudo</a></div>
+        <span class="spell-level-badge">Clássica · Sorte</span>
+      </div>
+      <div class="spell-body">
+        <p style="font-style:italic;opacity:0.7;margin-bottom:1rem;">"Ninguém acredita que ele vai sobreviver. Ele também não. Mas de alguma forma sempre sobrevive."</p>
+        <div class="spell-meta">
+          <div class="spell-meta-item"><span class="spell-meta-label">DES</span><span class="spell-meta-value">+3</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">CAR</span><span class="spell-meta-value">+2</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">SAB</span><span class="spell-meta-value">+1</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">FOR</span><span class="spell-meta-value">−2</span></div>
+        </div>
+        <div class="spell-effect">
+          <strong>🟢 Traços Passivos:</strong><br>
+          • <strong>Sorte Inata:</strong> Quando rolar <strong>1 natural</strong> em qualquer d20, rerrola automaticamente e usa o novo resultado.<br>
+          • <strong>Pés Silenciosos:</strong> Vantagem permanente em Furtividade. Pode se esconder atrás de criaturas Médias.<br>
+          • <strong>Coração Valente:</strong> Imune ao estado Amedrontado enquanto houver aliado em 3m.<br>
+          • <strong>Tamanho Pequeno:</strong> Pode mover-se pelo espaço de criaturas Médias ou maiores sem custo extra.<br><br>
+          <strong>🔵 Habilidade Racial — Toca de Coelho (1 Mana · Reação):</strong><br>
+          Quando um ataque te acertar, você pode se esquivar para um espaço adjacente desocupado em até 3m — o ataque erra automaticamente. Uso: <strong>2×/descanso curto</strong>.<br><br>
+          <strong>🔴 Desvantagem Inerente — Alcance Limitado:</strong><br>
+          Dano com armas de duas mãos sofre <strong>−1d de penalidade</strong> (ex: 2d6 → 1d6+1d4). Halflings têm desvantagem em testes de Intimidação e são automaticamente considerados Pequenos para fins de agarrar, carregar e empurrar.
+        </div>
+      </div>
+    </div>
+
+    <!-- TIEFLING -->
+    <div class="spell-card" id="raca-tiefling">
+      <div class="spell-header" style="background:linear-gradient(135deg,#3a0a0a 0%,#200505 100%);">
+        <div class="spell-name"><a href="#raca-tiefling" style="color:inherit;text-decoration:none;border-bottom:1px dotted rgba(201,168,76,0.4);">TIEFLING — O Marcado</a></div>
+        <span class="spell-level-badge">Clássica · Infernal</span>
+      </div>
+      <div class="spell-body">
+        <p style="font-style:italic;opacity:0.7;margin-bottom:1rem;">"O sangue infernal não é maldição. É herança. A diferença é quem controla quem."</p>
+        <div class="spell-meta">
+          <div class="spell-meta-item"><span class="spell-meta-label">INT</span><span class="spell-meta-value">+2</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">CAR</span><span class="spell-meta-value">+3</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">SAB</span><span class="spell-meta-value">−1</span></div>
+        </div>
+        <div class="spell-effect">
+          <strong>🟢 Traços Passivos:</strong><br>
+          • <strong>Resistência Infernal:</strong> Resistência a dano de Fogo (÷2).<br>
+          • <strong>Visão nas Trevas:</strong> Visão no escuro até 18m em escala de cinza.<br>
+          • <strong>Herança Arcana:</strong> Conhece os cantrips <em>Thaumaturgy</em> e <em>Produce Flame</em> sem custo de Mana (1 PA).<br>
+          • <strong>Presença Aterrorizante:</strong> +3 em Intimidação. Criaturas com SAB ≤ 8 ficam Amedrontadas na presença do tiefling por 1 rodada ao falhar save SAB DC 10+CAR.<br><br>
+          <strong>🔵 Habilidade Racial — Chama Infernal (3 Mana · Ação Padrão):</strong><br>
+          Lança chamas negras em cone de 6m — <strong>3d6 + MA_CAR (fogo + necrótico)</strong>, save DES DC 10+CAR metade. Dano ignora Resistência a Fogo comum. Uso: <strong>2×/descanso longo</strong>.<br><br>
+          <strong>🔴 Desvantagem Inerente — Estigma Infernal:</strong><br>
+          NPCs neutros fazem teste de CAR DC 12 na primeira interação — falha = reação inicial <em>Desconfiante</em> (Desvantagem em testes sociais por 1 hora). Tieflings têm Desvantagem em saves contra magias de <strong>escola Sagrada ou Radiante</strong>.
+        </div>
+      </div>
+    </div>
+
+    <!-- DRACONATO -->
+    <div class="spell-card" id="raca-draconato">
+      <div class="spell-header" style="background:linear-gradient(135deg,#1a2a3a 0%,#0a1520 100%);">
+        <div class="spell-name"><a href="#raca-draconato" style="color:inherit;text-decoration:none;border-bottom:1px dotted rgba(201,168,76,0.4);">DRACONATO — O Herdeiro do Sopro</a></div>
+        <span class="spell-level-badge">Clássica · Dracônica</span>
+      </div>
+      <div class="spell-body">
+        <p style="font-style:italic;opacity:0.7;margin-bottom:1rem;">"Não é magia. É herança genética de um ser que destruiu cidades sozinho."</p>
+        <div class="spell-meta">
+          <div class="spell-meta-item"><span class="spell-meta-label">FOR</span><span class="spell-meta-value">+3</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">CAR</span><span class="spell-meta-value">+2</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">INT</span><span class="spell-meta-value">+1</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">DES</span><span class="spell-meta-value">−1</span></div>
+        </div>
+        <div class="spell-effect">
+          <strong>🟢 Traços Passivos:</strong><br>
+          • <strong>Linhagem Dracônica:</strong> Escolha um tipo de dragão (Vermelho, Azul, Verde, Branco, Negro, Cobre, Ouro). Resistência ao elemento correspondente.<br>
+          • <strong>Escamas Naturais:</strong> DR natural = 1 + (Nível ÷ 5, arredondado para baixo). Máx. DR 5 no Nível 20.<br>
+          • <strong>Presença Dracônica:</strong> Vantagem em Intimidação e testes de liderança em combate.<br><br>
+          <strong>🔵 Habilidade Racial — Sopro Dracônico (Mana = Nível ÷ 2 · Ação Padrão):</strong><br>
+          Sopro do tipo elemental da linhagem. Área: Cone 6m ou Linha 9m × 1,5m (escolha na hora).<br>
+          <strong>Dano:</strong> (Nível × 1d6) + MA_FOR. Save CON metade, DC 8 + Nível ÷ 2 + MA_FOR.<br>
+          Nível 1 → 1d6 + FOR | Nível 10 → 10d6 + FOR | Nível 20 → 20d6 + FOR.<br>
+          Uso: <strong>Mana disponível</strong> (custo escala com nível).<br><br>
+          <strong>🔴 Desvantagem Inerente — Instinto Bestial:</strong><br>
+          Draconatos têm Desvantagem em saves de SAB contra efeitos de Medo ou Raiva. Se reduzidos a menos de 25% dos PV máximos, devem fazer save SAB DC 14 ou entrar em <em>Frenesi Dracônico</em> (atacam aliado mais próximo por 1 rodada).
+        </div>
+      </div>
+    </div>
+
+    <!-- MEIO-ELFO -->
+    <div class="spell-card" id="raca-meio-elfo">
+      <div class="spell-header" style="background:linear-gradient(135deg,#1a2a1a 0%,#0d180d 100%);">
+        <div class="spell-name"><a href="#raca-meio-elfo" style="color:inherit;text-decoration:none;border-bottom:1px dotted rgba(201,168,76,0.4);">MEIO-ELFO — O Entre-Mundos</a></div>
+        <span class="spell-level-badge">Clássica · Híbrida</span>
+      </div>
+      <div class="spell-body">
+        <p style="font-style:italic;opacity:0.7;margin-bottom:1rem;">"Humano demais para os elfos. Élfico demais para os humanos. Perfeito demais para ambos os mundos."</p>
+        <div class="spell-meta">
+          <div class="spell-meta-item"><span class="spell-meta-label">CAR</span><span class="spell-meta-value">+3</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">DES</span><span class="spell-meta-value">+2</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">INT</span><span class="spell-meta-value">+1</span></div>
+        </div>
+        <div class="spell-effect">
+          <strong>🟢 Traços Passivos:</strong><br>
+          • <strong>Herança Dupla:</strong> Escolha 2 traços da lista (1 Humano + 1 Élfico): Versatilidade, Resistência Mortal, Sangue Arcano, Visão Élfica, Graça Ancestral, Imunidade a Sono.<br>
+          • <strong>Diplomata Natural:</strong> +4 em testes de Persuasão e Enganação. Nunca sofre penalidade de reação inicial por aparência.<br>
+          • <strong>Semi-Imortal:</strong> Envelhece 2× mais lento. Imune a efeitos de <em>Envelhecimento Mágico</em>.<br><br>
+          <strong>🔵 Habilidade Racial — Empatia Élfica (0 Mana · Ação Livre):</strong><br>
+          Lê as emoções superficiais de uma criatura em até 9m — sabendo se está com medo, raiva, mentindo ou escondendo algo. Não lê pensamentos. Uso: <strong>SAB perícia passiva vs DC 12 + SAB do alvo</strong>. Ilimitado.<br><br>
+          <strong>🔴 Desvantagem Inerente — Pertencimento Partido:</strong><br>
+          Nunca recebe bônus de sinergias de grupo racial (magias de "elfos aliados", bônus de "comunidade anã" etc.). Ao ser Encantado, a duração do efeito é <strong>dobrada</strong> (natureza dupla dificulta a resistência).
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ RAÇAS ORIGINAIS ═══ -->
+    <h2 class="section-title" id="racas-originais" style="margin-top:4rem;">Raças Originais de Herança</h2>
+    <p>Estas raças foram criadas especificamente para o sistema Herança, incorporando suas mecânicas únicas de Mana, PA e progressão por nível.</p>
+
+    <!-- CINZEIRO -->
+    <div class="spell-card" id="raca-cinzeiro">
+      <div class="spell-header" style="background:linear-gradient(135deg,#2a2a2a 0%,#111111 100%);">
+        <div class="spell-name"><a href="#raca-cinzeiro" style="color:inherit;text-decoration:none;border-bottom:1px dotted rgba(201,168,76,0.4);">CINZEIRO — O Corrompido</a></div>
+        <span class="spell-level-badge">Original · Absorção Arcana</span>
+      </div>
+      <div class="spell-body">
+        <p style="font-style:italic;opacity:0.7;margin-bottom:1rem;">"Ele sobreviveu à explosão arcana. Não saiu ileso — saiu diferente."</p>
+        <div class="spell-meta">
+          <div class="spell-meta-item"><span class="spell-meta-label">CON</span><span class="spell-meta-value">+2</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">INT</span><span class="spell-meta-value">+2</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">FOR</span><span class="spell-meta-value">+1</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">CAR</span><span class="spell-meta-value">−2</span></div>
+        </div>
+        <div class="spell-effect">
+          <strong>🟢 Traços Passivos:</strong><br>
+          • <strong>Pele de Cinzas:</strong> Resistência a dano de Fogo e Eletricidade. Aparência desfigurada — marcas de queimadura arcana cobrindo o corpo.<br>
+          • <strong>Imunidade à Magia Menor:</strong> Magias de N1 e N0 de outros conjuradores têm 25% de chance de falhar automaticamente ao atingir o Cinzeiro (absorção involuntária).<br>
+          • <strong>Reserva Corrompida:</strong> Mana máxima +4 por nível acima do normal da classe.<br>
+          • <strong>Sentir Magia:</strong> Sente a presença de magia ativa ou objetos mágicos em 9m automaticamente, sem Ação.<br><br>
+          <strong>🔵 Habilidade Racial — Absorção Arcana (0 Mana · Reação):</strong><br>
+          Quando atingido por uma magia que cause dano: absorve até <strong>Nível × 2 de Mana</strong> do dano sofrido. O dano restante é aplicado normalmente. Mana absorvida entra no total atual (pode ultrapassar máximo por 1 rodada).<br>
+          Uso: <strong>1×/rodada</strong>.<br><br>
+          <strong>🔴 Desvantagem Inerente — Instabilidade Arcana:</strong><br>
+          Ao rolar <strong>1 natural</strong> em qualquer ação que use Mana, ocorre uma <em>Explosão Residual</em>: 1d6 (força) em área de 3m centrado no Cinzeiro (inclui aliados), save DES DC 12 metade. Curas mágicas recebidas são <strong>50% menos eficazes</strong> (magia não se integra bem com o corpo corrompido).
+        </div>
+      </div>
+    </div>
+
+    <!-- MOLDADO -->
+    <div class="spell-card" id="raca-moldado">
+      <div class="spell-header" style="background:linear-gradient(135deg,#1a1a3a 0%,#0d0d25 100%);">
+        <div class="spell-name"><a href="#raca-moldado" style="color:inherit;text-decoration:none;border-bottom:1px dotted rgba(201,168,76,0.4);">MOLDADO — O Construto Vivo</a></div>
+        <span class="spell-level-badge">Original · Construto</span>
+      </div>
+      <div class="spell-body">
+        <p style="font-style:italic;opacity:0.7;margin-bottom:1rem;">"Foi criado para obedecer. Aprendeu a questionar. Isso foi o erro do criador — ou o maior acerto."</p>
+        <div class="spell-meta">
+          <div class="spell-meta-item"><span class="spell-meta-label">FOR</span><span class="spell-meta-value">+2</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">INT</span><span class="spell-meta-value">+3</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">CON</span><span class="spell-meta-value">+1</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">SAB</span><span class="spell-meta-value">−2</span></div>
+        </div>
+        <div class="spell-effect">
+          <strong>🟢 Traços Passivos:</strong><br>
+          • <strong>Construto Vivo:</strong> Imune a veneno, doença, sono mágico, efeitos de fome/sede e envelhecimento. Não respira.<br>
+          • <strong>Descanso Eficiente:</strong> Descanso curto = 10 minutos (ao invés de 1 hora). Descanso longo = 4 horas.<br>
+          • <strong>Módulo de Combate:</strong> Escolha 1 tipo de arma ao criar o personagem — perícia com ela é sempre máxima (Nível do Personagem + 3).<br>
+          • <strong>Memória Perfeita:</strong> Lembra de tudo que aconteceu desde sua criação. Nunca falha em testes de memória ou conhecimento visto anteriormente.<br><br>
+          <strong>🔵 Habilidade Racial — Sobrecarga de Sistema (0 Mana · Ação Menor):</strong><br>
+          Ativa por <strong>3 rodadas</strong>: +2 PA por turno, +1d6 em todos os ataques. Após terminar: <em>Exaustão 2</em> e sistemas offline — sem Ação Livre por 2 rodadas. Uso: <strong>1×/descanso longo</strong>.<br><br>
+          <strong>🔴 Desvantagem Inerente — Núcleo Mágico:</strong><br>
+          Moldados não possuem Mana própria — toda magia que usarem depende de <em>Cristais de Mana</em> consumíveis (1 cristal = 2 Mana). Sem cristais, não podem conjurar. Efeitos de Dispel Magic causam ao Moldado o efeito <em>Atordoado</em> por 1 rodada mesmo se resistir.
+        </div>
+      </div>
+    </div>
+
+    <!-- SELVÁTICO -->
+    <div class="spell-card" id="raca-selvatico">
+      <div class="spell-header" style="background:linear-gradient(135deg,#1a3010 0%,#0d1e08 100%);">
+        <div class="spell-name"><a href="#raca-selvatico" style="color:inherit;text-decoration:none;border-bottom:1px dotted rgba(201,168,76,0.4);">SELVÁTICO — O Vínculo Animal</a></div>
+        <span class="spell-level-badge">Original · Metamorfose</span>
+      </div>
+      <div class="spell-body">
+        <p style="font-style:italic;opacity:0.7;margin-bottom:1rem;">"A civilização é uma camada fina. Abaixo dela, todo Selvático lembra o que era antes."</p>
+        <div class="spell-meta">
+          <div class="spell-meta-item"><span class="spell-meta-label">FOR</span><span class="spell-meta-value">+2</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">DES</span><span class="spell-meta-value">+2</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">SAB</span><span class="spell-meta-value">+2</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">INT</span><span class="spell-meta-value">−2</span></div>
+        </div>
+        <div class="spell-effect">
+          <strong>🟢 Traços Passivos:</strong><br>
+          • <strong>Aspecto Animal:</strong> Escolha 1 aspecto na criação: <em>Felino</em> (Furtividade+4, garras 1d6), <em>Urso</em> (PV máx +3/nível, abraço que Retém), <em>Lobo</em> (Vantagem em ataques flanqueados, farejamento 18m), <em>Corvos</em> (visão 360°, voo 6m/rodada). Permanente.<br>
+          • <strong>Sentidos Aguçados:</strong> Não pode ser surpreendido. Vantagem em Percepção passiva.<br>
+          • <strong>Cura Natural:</strong> Recupera 1 PV no início de cada turno se acima de 0 PV (Regeneração lenta, bloqueada por veneno ativo).<br><br>
+          <strong>🔵 Habilidade Racial — Forma Bestial (4 Mana · Ação Padrão):</strong><br>
+          Transforma-se parcialmente por Nível ÷ 3 rodadas (mín. 1). Ganha: +2 FOR e DES, Velocidade +3m, ataques naturais (garras/presas) causam 2d6 + FOR. Mantém uso de itens e fala. Uso: <strong>2×/descanso longo</strong>.<br><br>
+          <strong>🔴 Desvantagem Inerente — Instinto Selvagem:</strong><br>
+          Desvantagem em testes de Enganação e Persuasão em contextos urbanos ou formais. Quando reduzido a menos de 30% dos PV, deve fazer save SAB DC 13 ou perder 1 PA daquele turno reagindo instintivamente (ataque de oportunidade gratuito no agressor, mas perde escolha da ação seguinte).
+        </div>
+      </div>
+    </div>
+
+    <!-- SEM-NOME -->
+    <div class="spell-card" id="raca-semnome">
+      <div class="spell-header" style="background:linear-gradient(135deg,#20102a 0%,#120818 100%);">
+        <div class="spell-name"><a href="#raca-semnome" style="color:inherit;text-decoration:none;border-bottom:1px dotted rgba(201,168,76,0.4);">SEM-NOME — A Identidade Fluida</a></div>
+        <span class="spell-level-badge">Original · Metamágica</span>
+      </div>
+      <div class="spell-body">
+        <p style="font-style:italic;opacity:0.7;margin-bottom:1rem;">"Pergunte de onde vem. Ele não sabe. Pergunte o que é. Ele ainda está descobrindo."</p>
+        <div class="spell-meta">
+          <div class="spell-meta-item"><span class="spell-meta-label">Todos</span><span class="spell-meta-value">+0 fixo</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">Fluido</span><span class="spell-meta-value">ver traços</span></div>
+        </div>
+        <div class="spell-effect">
+          <strong>🟢 Traços Passivos — Identidade Mutável:</strong><br>
+          • <strong>Essência em Fluxo:</strong> A cada nível ímpar (1, 3, 5, 7…), o jogador redistribui <strong>2 pontos de atributo</strong> livremente entre os 6 atributos. Representa a identidade ainda se formando.<br>
+          • <strong>Memória Vazia:</strong> Imune a efeitos de Modificar Memória e Leitura de Mente. Não tem passado mágico registrável — Scrying falha automaticamente.<br>
+          • <strong>Absorção de Experiência:</strong> Ganha 10% mais XP em todas as situações (aprende mais rápido por não ter padrões fixos).<br>
+          • <strong>Sem Herança Racial:</strong> Não sofre bônus nem penalidades de origem racial em interações sociais.<br><br>
+          <strong>🔵 Habilidade Racial — Fragmento Emprestado (2 Mana · Ação Menor):</strong><br>
+          Copia um Traço Passivo de qualquer raça de um aliado em 3m por <strong>10 minutos</strong>. Pode ter apenas 1 fragmento ativo por vez. O aliado não perde o traço. Uso: <strong>3×/descanso longo</strong>.<br><br>
+          <strong>🔴 Desvantagem Inerente — Identidade Incompleta:</strong><br>
+          Sem bônus raciais fixos, o Sem-Nome começa com todos os atributos <strong>−1</strong> globalmente (compensado pela redistribuição nos níveis ímpares). Efeitos de Banimento funcionam diferente: ao ser banido, o Sem-Nome <em>não retorna automaticamente</em> — precisa de um aliado no plano material que o "lembre" (teste CAR DC 14).
+        </div>
+      </div>
+    </div>
+
+    <!-- GNOMO -->
+    <div class="spell-card" id="raca-gnomo">
+      <div class="spell-header" style="background:linear-gradient(135deg,#1a2a3a 0%,#0d1820 100%);">
+        <div class="spell-name"><a href="#raca-gnomo" style="color:inherit;text-decoration:none;border-bottom:1px dotted rgba(201,168,76,0.4);">GNOMO — O Engenheiro do Impossível</a></div>
+        <span class="spell-level-badge">Original · Ilusão &amp; Invenção</span>
+      </div>
+      <div class="spell-body">
+        <p style="font-style:italic;opacity:0.7;margin-bottom:1rem;">"A pergunta não é 'devo fazer isso?'. É 'quantas vezes posso fazer isso antes que exploda?'"</p>
+        <div class="spell-meta">
+          <div class="spell-meta-item"><span class="spell-meta-label">INT</span><span class="spell-meta-value">+4</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">DES</span><span class="spell-meta-value">+2</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">FOR</span><span class="spell-meta-value">−2</span></div>
+          <div class="spell-meta-item"><span class="spell-meta-label">CON</span><span class="spell-meta-value">−1</span></div>
+        </div>
+        <div class="spell-effect">
+          <strong>🟢 Traços Passivos:</strong><br>
+          • <strong>Resistência Mental:</strong> Vantagem em saves de INT e saves contra Ilusões e Encantamentos.<br>
+          • <strong>Especialista em Ilusão:</strong> DC de todas as magias de escola Ilusão = +2. Custo de Mana em magias de Ilusão reduzido em 2 (mínimo 0).<br>
+          • <strong>Mente Técnica:</strong> +4 em testes de Arcanismo, Ferramentas e Investigação. Pode criar itens alquímicos com metade do custo de componentes.<br>
+          • <strong>Tamanho Pequeno:</strong> Mesmo benefício de movimento que Halflings.<br><br>
+          <strong>🔵 Habilidade Racial — Gambito Gnômico (1 Mana · Ação Livre):</strong><br>
+          Cria uma <em>distração ilusória</em> em qualquer ponto a até 18m — pode ser som, luz ou imagem simples. Dura 1 rodada. Criaturas inteligentes (INT ≥ 8) devem fazer teste Percepção DC 12+INT do gnomo para não serem distraídas (perdem Ação Livre naquele turno). Ilimitado.<br><br>
+          <strong>🔴 Desvantagem Inerente — Baixa Resistência:</strong><br>
+          PV máximo <strong>−1 por nível</strong> comparado a outras raças na mesma classe. Saves de FOR e CON têm penalidade de <strong>−2</strong> permanente. Criaturas Grandes ou maiores têm Vantagem em ataques contra Gnomos.
+        </div>
+      </div>
+    </div>
+
+    <!-- TABELA COMPARATIVA -->
+    <h2 class="section-title" style="margin-top:4rem;" id="tabela-racas">Tabela Comparativa das Raças</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Raça</th>
+            <th>Pontos Fortes</th>
+            <th>Ponto Fraco</th>
+            <th>Melhor Classe</th>
+            <th>Dificuldade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><a href="#raca-humano" style="color:var(--gold);">Humano</a></td><td>+1 PA, Versatilidade total</td><td>Sem resistência natural</td><td>Qualquer</td><td>⭐ Iniciante</td></tr>
+          <tr><td><a href="#raca-elfo" style="color:var(--gold);">Elfo</a></td><td>Mana eficiente, mobilidade</td><td>−2 PV/nível, frágil</td><td>Mago / Arqueiro</td><td>⭐⭐ Médio</td></tr>
+          <tr><td><a href="#raca-anao" style="color:var(--gold);">Anão</a></td><td>DR, PV extra, tanque</td><td>Lento, sem ilusão</td><td>Guerreiro / Tanque</td><td>⭐ Iniciante</td></tr>
+          <tr><td><a href="#raca-halfling" style="color:var(--gold);">Halfling</a></td><td>Sorte, furtividade, esquiva</td><td>Dano reduzido, fraco</td><td>Ladino / Suporte</td><td>⭐⭐ Médio</td></tr>
+          <tr><td><a href="#raca-tiefling" style="color:var(--gold);">Tiefling</a></td><td>CAR alto, dano infernal</td><td>Estigma social, sagrado</td><td>Feiticeiro / Bardo</td><td>⭐⭐ Médio</td></tr>
+          <tr><td><a href="#raca-draconato" style="color:var(--gold);">Draconato</a></td><td>Sopro escalonável, DR</td><td>Frenesi a baixo PV</td><td>Guerreiro / Paladino</td><td>⭐⭐⭐ Avançado</td></tr>
+          <tr><td><a href="#raca-meio-elfo" style="color:var(--gold);">Meio-Elfo</a></td><td>Carisma, herança dupla</td><td>Encantamento dobrado</td><td>Bardo / Diplomata</td><td>⭐⭐ Médio</td></tr>
+          <tr><td><a href="#raca-cinzeiro" style="color:var(--gold);">Cinzeiro</a></td><td>Absorção arcana, Mana extra</td><td>Explosão em crítico 1</td><td>Mago / Conjurador</td><td>⭐⭐⭐ Avançado</td></tr>
+          <tr><td><a href="#raca-moldado" style="color:var(--gold);">Moldado</a></td><td>Sem necessidades biológicas</td><td>Sem Mana própria</td><td>Guerreiro / Técnico</td><td>⭐⭐⭐ Avançado</td></tr>
+          <tr><td><a href="#raca-selvatico" style="color:var(--gold);">Selvático</a></td><td>Aspecto animal, regeneração</td><td>Instinto incontrolável</td><td>Guardião / Druida</td><td>⭐⭐ Médio</td></tr>
+          <tr><td><a href="#raca-semnome" style="color:var(--gold);">Sem-Nome</a></td><td>Adapta-se a qualquer build</td><td>−1 global inicial</td><td>Qualquer</td><td>⭐⭐⭐⭐ Expert</td></tr>
+          <tr><td><a href="#raca-gnomo" style="color:var(--gold);">Gnomo</a></td><td>INT máxima, ilusão barata</td><td>Frágil, alvo fácil</td><td>Ilusionista / Alquimista</td><td>⭐⭐⭐ Avançado</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warning-box" style="margin-top:2rem;">
+      <div class="info-box-title">⚖ Nota de Balanceamento</div>
+      <p>As Desvantagens Inerentes são intencionais e permanentes até o Nível 15, quando o personagem pode gastar 3 Marcos para <strong>mitigar parcialmente</strong> (nunca eliminar completamente) sua desvantagem racial. Isso garante que as vantagens de cada raça não se tornem dominantes em níveis altos.</p>
+    </div>
+
+  </div><!-- /content-wrapper -->
+</section>
+
 
 <div class="chapter-sep"><span class="sep-ornament">— ✦ —</span></div>
 
