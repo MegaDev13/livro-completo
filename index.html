@@ -24,6 +24,15 @@
     --mist: #8a9aaa;
     --text-body: #3a2e20;
     --text-light: #5c4d38;
+    /* class colors */
+    --warrior: #c0392b;
+    --paladin: #f1c40f;
+    --ranger: #27ae60;
+    --rogue: #8e44ad;
+    --mage: #2980b9;
+    --druid: #16a085;
+    --bard: #e67e22;
+    --necro: #2c3e50;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -863,6 +872,353 @@
 
   .dragon-stat span:first-child { color: var(--mist); }
   .dragon-stat span:last-child { color: var(--gold); font-family: 'Fira Code', monospace; font-size: 0.8rem; }
+
+  /* ─── SISTEMA DE CLASSES ─── */
+  /* CLASS OVERVIEW GRID */
+  .class-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .class-overview-card {
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 1.2rem;
+    background: var(--ash);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    color: var(--parchment);
+  }
+  .class-overview-card:hover { transform: translateY(-3px); border-color: var(--gold); }
+  .class-overview-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .class-overview-card.warrior::before { background: var(--warrior); }
+  .class-overview-card.paladin::before { background: var(--paladin); }
+  .class-overview-card.ranger::before { background: var(--ranger); }
+  .class-overview-card.rogue::before { background: var(--rogue); }
+  .class-overview-card.mage::before { background: var(--mage); }
+  .class-overview-card.druid::before { background: var(--druid); }
+  .class-overview-card.bard::before { background: var(--bard); }
+  .class-overview-card.necro::before { background: var(--necro); border-top: 3px solid #7f8c8d; }
+  .class-icon { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
+  .class-card-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1rem;
+    color: var(--gold-light);
+    margin-bottom: 0.2rem;
+  }
+  .class-card-tagline {
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--mist);
+    margin-bottom: 0.8rem;
+  }
+  .class-stat-mini {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    padding: 0.2rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+  }
+  .class-stat-mini span:first-child { color: var(--mist); font-family: 'Fira Code', monospace; font-size: 0.7rem; }
+  .class-stat-mini span:last-child { color: var(--gold); }
+
+  /* CLASS SECTION */
+  .class-section {
+    margin: 5rem 0 0 0;
+    border: 1px solid rgba(201,168,76,0.15);
+    background: rgba(0,0,0,0.2);
+  }
+  .class-header {
+    padding: 2rem 2.5rem;
+    position: relative;
+    border-bottom: 2px solid rgba(201,168,76,0.2);
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .class-header-icon {
+    font-size: 4rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .class-header-text { flex: 1; min-width: 200px; }
+  .class-header-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: var(--gold-light);
+    margin-bottom: 0.2rem;
+  }
+  .class-header-motto {
+    font-style: italic;
+    color: var(--silver);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+  .class-header-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .stat-chip {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 0.3rem 0.8rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+  }
+  .stat-chip strong { color: var(--gold-light); }
+
+  .class-color-bar {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+  }
+  .warrior .class-color-bar { background: var(--warrior); }
+  .paladin .class-color-bar { background: var(--paladin); }
+  .ranger .class-color-bar { background: var(--ranger); }
+  .rogue .class-color-bar { background: var(--rogue); }
+  .mage .class-color-bar { background: var(--mage); }
+  .druid .class-color-bar { background: var(--druid); }
+  .bard .class-color-bar { background: var(--bard); }
+  .necro .class-color-bar { background: #7f8c8d; }
+
+  .class-body { padding: 2rem 2.5rem; }
+
+  /* TALENT TREE */
+  .talent-tree {
+    margin: 2rem 0;
+  }
+  .talent-tree-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .talent-tree-title::before { content: '🌿 '; }
+
+  /* The tree itself */
+  .tree-levels {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .tree-level {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0;
+    position: relative;
+  }
+  .tree-level-num {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 1.1rem;
+    position: relative;
+  }
+  .level-badge {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.65rem;
+    color: var(--gold-dark);
+    background: var(--ink);
+    border: 1px solid var(--gold-dark);
+    padding: 0.15rem 0.4rem;
+    white-space: nowrap;
+    position: relative;
+    z-index: 2;
+  }
+  .level-badge.marco {
+    color: var(--gold-light);
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.1);
+  }
+  .tree-level-connector {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(201,168,76,0.15);
+    z-index: 1;
+  }
+  .tree-level-connector.first { top: 1.5rem; }
+  .tree-level-connector.last { bottom: calc(100% - 1.5rem); top: 0; }
+
+  .tree-talents {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.7rem;
+    padding: 0.7rem 0 0.7rem 1rem;
+    border-left: 2px solid rgba(201,168,76,0.15);
+    margin-left: 10px;
+  }
+
+  .talent-node {
+    background: var(--ash);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 0.8rem 1rem;
+    position: relative;
+    transition: all 0.2s;
+  }
+  .talent-node:hover { border-color: var(--gold); }
+  .talent-node.locked { opacity: 0.45; }
+  .talent-node.prereq::before {
+    content: '↳';
+    position: absolute;
+    left: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold-dark);
+    font-size: 0.8rem;
+  }
+  .talent-node.marco-node {
+    border-color: rgba(201,168,76,0.5);
+    background: rgba(201,168,76,0.07);
+  }
+  .talent-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.82rem;
+    color: var(--gold-light);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.05rem;
+  }
+  .talent-name .req-tag {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.6rem;
+    color: var(--gold-dark);
+    margin-left: 0.4rem;
+    border: 1px solid var(--gold-dark);
+    padding: 0.05rem 0.25rem;
+    vertical-align: middle;
+  }
+  .talent-desc {
+    font-size: 0.85rem;
+    color: var(--parchment);
+    opacity: 0.85;
+    line-height: 1.5;
+  }
+  .talent-desc strong { color: var(--gold-light); }
+  .talent-type {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.6rem;
+    color: var(--mist);
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+
+  /* Marco special */
+  .marco-node .talent-name { color: var(--gold); }
+  .marco-node::after {
+    content: '★ MARCO';
+    position: absolute;
+    top: 0.4rem;
+    right: 0.6rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.55rem;
+    color: var(--gold-dark);
+    letter-spacing: 0.1rem;
+  }
+
+  /* PASSIVE box */
+  .passive-box {
+    background: rgba(201,168,76,0.04);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-left: 3px solid var(--gold-dark);
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0;
+  }
+  .passive-box-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.15rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .passive-box p { font-size: 0.9rem; opacity: 0.85; margin-bottom: 0; }
+
+  /* CHAPTER SEP */
+  .chapter-sep {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--ink);
+    position: relative;
+  }
+  .chapter-sep::before, .chapter-sep::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
+  }
+  .chapter-sep::before { top: 1rem; }
+  .chapter-sep::after { bottom: 1rem; }
+  .sep-ornament { font-size: 1.5rem; color: var(--gold); letter-spacing: 1.5rem; }
+
+  footer {
+    background: var(--ink);
+    border-top: 3px solid var(--gold-dark);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  footer .footer-logo { font-family: 'Cinzel Decorative', serif; font-size: 2rem; color: var(--gold); margin-bottom: 1rem; }
+  footer p { font-size: 0.85rem; color: var(--mist); opacity: 0.6; margin-bottom: 0.3rem; }
+
+  .subsection-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--gold-dark);
+  }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.8rem 0; }
+  .tag {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.7rem;
+    border: 1px solid var(--gold-dark);
+    color: var(--gold);
+  }
+
+  /* Tree connection lines */
+  .tree-branch {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+  .tree-spine {
+    width: 2px;
+    background: rgba(201,168,76,0.2);
+    margin-right: 1rem;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 640px) {
+    .class-header { flex-direction: column; gap: 1rem; }
+    .tree-talents { grid-template-columns: 1fr; }
+    .class-overview-grid { grid-template-columns: 1fr 1fr; }
+  }
+
 </style>
 </head>
 <body>
@@ -905,6 +1261,8 @@
       <a class="toc-item" href="#cap8"><span class="toc-num">08</span><span class="toc-text">Sistema de Dragões</span><span class="toc-arrow">→</span></a>
       <a class="toc-item" href="#cap9"><span class="toc-num">09</span><span class="toc-text">Equipamentos e Itens</span><span class="toc-arrow">→</span></a>
       <a class="toc-item" href="#cap10"><span class="toc-num">10</span><span class="toc-text">Balanceamento e Limites</span><span class="toc-arrow">→</span></a>
+      <a class="toc-item" href="#cap-classes"><span class="toc-num">✦</span><span class="toc-text">Sistema de Classes</span><span class="toc-arrow">→</span></a>
+      <a class="toc-item" href="#guerreiro" style="padding-left:2.5rem;opacity:0.75;"><span class="toc-num" style="font-size:0.65em;letter-spacing:0;">8CLS</span><span class="toc-text" style="font-size:0.88em;">Guerreiro · Paladino · Ranger · Ladino · Mago · Druida · Bardo · Necromante</span><span class="toc-arrow">→</span></a>
       <a class="toc-item" href="#grimorio"><span class="toc-num">✦</span><span class="toc-text">Grimório de Magia</span><span class="toc-arrow">→</span></a>
       <a class="toc-item" href="#nivel-0" style="padding-left:2.5rem;opacity:0.75;"><span class="toc-num" style="font-size:0.65em;letter-spacing:0;">N0–1</span><span class="toc-text" style="font-size:0.88em;">Cantrips &amp; Nível 1</span><span class="toc-arrow">→</span></a>
       <a class="toc-item" href="#nivel-2" style="padding-left:2.5rem;opacity:0.75;"><span class="toc-num" style="font-size:0.65em;letter-spacing:0;">N2–3</span><span class="toc-text" style="font-size:0.88em;">Nível 2 &amp; 3</span><span class="toc-arrow">→</span></a>
@@ -4789,11 +5147,1268 @@ Distribuição recomendada:
 
 <div class="chapter-sep"><span class="sep-ornament">— ✦ —</span></div>
 
+
+
+<!-- CLASSES CHAPTER -->
+<section class="chapter-section" id="cap-classes">
+  <div class="chapter-hero">
+    <div class="chapter-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=1600&q=80')"></div>
+    <div class="chapter-hero-overlay"></div>
+    <div class="chapter-hero-content">
+      <div class="chapter-label">Capítulo — Sistema de Classes</div>
+      <h2 class="chapter-title">Classes de Herança</h2>
+      <p class="chapter-desc">Identidade, Árvores de Talento e Marcos de Poder — 8 classes para 20 níveis de progressão</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+
+    <div class="pull-quote">"A classe não é um rótulo — é a filosofia de um guerreiro, a obsessão de um mago, a fé inabalável de um paladino. É o que você escolhe ser quando o mundo pede que você seja nada."</div>
+
+    <h2 class="section-title">Como Funcionam as Classes</h2>
+    <p>No sistema HERANÇA, a classe define o <strong>perfil fundamental</strong> do personagem: seus pontos de vida, acesso à magia, perícias preferenciais e, principalmente, sua <strong>árvore de talentos exclusiva</strong>. A classe não engesса — ela fornece uma identidade mecânica que coexiste com a liberdade das perícias livres do sistema.</p>
+
+    <div class="info-box">
+      <div class="info-box-title">📖 Regra Fundamental — Habilidade a Cada 2 Níveis</div>
+      <p>A cada <strong>nível par</strong> (2, 4, 6, 8... até 20), o personagem desbloqueia <strong>1 habilidade da sua árvore de talentos</strong>. Isso significa <strong>10 habilidades</strong> ao longo de 20 níveis, escolhidas dentro da estrutura de sua classe.</p>
+      <p>Nos <strong>Marcos de Poder</strong> (níveis 5, 10, 15 e 20), o personagem recebe uma <strong>habilidade de Marco extra</strong>, separada da habilidade normal daquele nível par — totalizando até <strong>12 habilidades de classe</strong> no nível 20.</p>
+    </div>
+
+    <div class="info-box">
+      <div class="info-box-title">🌿 Como Ler a Árvore de Talentos</div>
+      <p>Cada classe possui uma árvore com <strong>3 ramos temáticos</strong>. No nível par, você escolhe <strong>1 talento disponível</strong> em qualquer ramo — mas talentos avançados exigem que você já possua o talento anterior do mesmo ramo. Talentos com <strong>[REQ]</strong> só podem ser escolhidos após o pré-requisito indicado.</p>
+    </div>
+
+    <h2 class="section-title">Visão Geral das Classes</h2>
+
+    <div class="class-overview-grid">
+      <a class="class-overview-card warrior" href="#guerreiro">
+        <span class="class-icon">⚔️</span>
+        <div class="class-card-name">Guerreiro</div>
+        <div class="class-card-tagline">"A lâmina que nunca para"</div>
+        <div class="class-stat-mini"><span>PV/NÍV</span><span>10 + FOR + 1d12</span></div>
+        <div class="class-stat-mini"><span>MANA</span><span>Nenhum</span></div>
+        <div class="class-stat-mini"><span>MAGIA</span><span>—</span></div>
+        <div class="class-stat-mini"><span>DIFIC.</span><span>⭐ Iniciante</span></div>
+      </a>
+      <a class="class-overview-card paladin" href="#paladino">
+        <span class="class-icon">🛡️</span>
+        <div class="class-card-name">Paladino</div>
+        <div class="class-card-tagline">"A fé que protege e condena"</div>
+        <div class="class-stat-mini"><span>PV/NÍV</span><span>10 + FOR + 1d10</span></div>
+        <div class="class-stat-mini"><span>MANA</span><span>60% da fórmula</span></div>
+        <div class="class-stat-mini"><span>MAGIA</span><span>N1 – N4 (sagrada)</span></div>
+        <div class="class-stat-mini"><span>DIFIC.</span><span>⭐⭐ Médio</span></div>
+      </a>
+      <a class="class-overview-card ranger" href="#ranger">
+        <span class="class-icon">🏹</span>
+        <div class="class-card-name">Ranger</div>
+        <div class="class-card-tagline">"O olho que nunca perde"</div>
+        <div class="class-stat-mini"><span>PV/NÍV</span><span>10 + FOR + 1d10</span></div>
+        <div class="class-stat-mini"><span>MANA</span><span>40% da fórmula</span></div>
+        <div class="class-stat-mini"><span>MAGIA</span><span>N1 – N3 (natural)</span></div>
+        <div class="class-stat-mini"><span>DIFIC.</span><span>⭐⭐ Médio</span></div>
+      </a>
+      <a class="class-overview-card rogue" href="#ladino">
+        <span class="class-icon">🗡️</span>
+        <div class="class-card-name">Ladino</div>
+        <div class="class-card-tagline">"O que ninguém viu chegar"</div>
+        <div class="class-stat-mini"><span>PV/NÍV</span><span>10 + FOR + 1d8</span></div>
+        <div class="class-stat-mini"><span>MANA</span><span>20% da fórmula</span></div>
+        <div class="class-stat-mini"><span>MAGIA</span><span>N0 – N1 apenas</span></div>
+        <div class="class-stat-mini"><span>DIFIC.</span><span>⭐⭐ Médio</span></div>
+      </a>
+      <a class="class-overview-card mage" href="#mago">
+        <span class="class-icon">🔥</span>
+        <div class="class-card-name">Mago</div>
+        <div class="class-card-tagline">"A equação que dobra a realidade"</div>
+        <div class="class-stat-mini"><span>PV/NÍV</span><span>10 + FOR + 1d6</span></div>
+        <div class="class-stat-mini"><span>MANA</span><span>150% da fórmula</span></div>
+        <div class="class-stat-mini"><span>MAGIA</span><span>N0 – N6 (todos)</span></div>
+        <div class="class-stat-mini"><span>DIFIC.</span><span>⭐⭐⭐ Avançado</span></div>
+      </a>
+      <a class="class-overview-card druid" href="#druida">
+        <span class="class-icon">🌿</span>
+        <div class="class-card-name">Druida</div>
+        <div class="class-card-tagline">"A voz da natureza primordial"</div>
+        <div class="class-stat-mini"><span>PV/NÍV</span><span>10 + FOR + 1d8</span></div>
+        <div class="class-stat-mini"><span>MANA</span><span>100% da fórmula</span></div>
+        <div class="class-stat-mini"><span>MAGIA</span><span>N0 – N5 (natural)</span></div>
+        <div class="class-stat-mini"><span>DIFIC.</span><span>⭐⭐ Médio</span></div>
+      </a>
+      <a class="class-overview-card bard" href="#bardo">
+        <span class="class-icon">🎭</span>
+        <div class="class-card-name">Bardo</div>
+        <div class="class-card-tagline">"A palavra que inspira e destrói"</div>
+        <div class="class-stat-mini"><span>PV/NÍV</span><span>10 + FOR + 1d8</span></div>
+        <div class="class-stat-mini"><span>MANA</span><span>80% da fórmula</span></div>
+        <div class="class-stat-mini"><span>MAGIA</span><span>N0 – N4 + 3 de N5</span></div>
+        <div class="class-stat-mini"><span>DIFIC.</span><span>⭐⭐ Médio</span></div>
+      </a>
+      <a class="class-overview-card necro" href="#necromante">
+        <span class="class-icon">☠️</span>
+        <div class="class-card-name">Necromante</div>
+        <div class="class-card-tagline">"A linha entre vivo e morto"</div>
+        <div class="class-stat-mini"><span>PV/NÍV</span><span>10 + FOR + 1d6</span></div>
+        <div class="class-stat-mini"><span>MANA</span><span>120% da fórmula</span></div>
+        <div class="class-stat-mini"><span>MAGIA</span><span>N0 – N6 (sombria)</span></div>
+        <div class="class-stat-mini"><span>DIFIC.</span><span>⭐⭐⭐ Avançado</span></div>
+      </a>
+    </div>
+
+    <div class="table-wrapper" style="margin-top:2rem;">
+      <table>
+        <thead>
+          <tr>
+            <th>Nível</th><th>Habilidade</th><th>Nota</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Habilidade Passiva de Classe + 4 Perícias de Classe</td><td>Concedido automaticamente</td></tr>
+          <tr><td>2</td><td>Talento de Classe (Camada 1)</td><td>Qualquer talento disponível</td></tr>
+          <tr><td>4</td><td>Talento de Classe (Camada 2)</td><td>Pode avançar ramo ou ramificar</td></tr>
+          <tr><td>5</td><td>★ MARCO I — Habilidade Extra</td><td>Habilidade poderosa adicional</td></tr>
+          <tr><td>6</td><td>Talento de Classe (Camada 3)</td><td>—</td></tr>
+          <tr><td>8</td><td>Talento de Classe (Camada 4)</td><td>Talentos avançados disponíveis</td></tr>
+          <tr><td>10</td><td>Talento de Classe (Camada 5) + ★ MARCO II</td><td>Dois benefícios</td></tr>
+          <tr><td>12</td><td>Talento de Classe (Camada 6)</td><td>—</td></tr>
+          <tr><td>14</td><td>Talento de Classe (Camada 7)</td><td>Talentos épicos disponíveis</td></tr>
+          <tr><td>15</td><td>★ MARCO III — Habilidade Extra</td><td>—</td></tr>
+          <tr><td>16</td><td>Talento de Classe (Camada 8)</td><td>—</td></tr>
+          <tr><td>18</td><td>Talento de Classe (Camada 9)</td><td>—</td></tr>
+          <tr><td>20</td><td>Talento de Classe (Camada 10) + ★ MARCO IV</td><td>Apoteose da classe</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div><!-- /content-wrapper -->
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">— ✦ —</span></div>
+
+<!-- ═══════════════════ GUERREIRO ═══════════════════ -->
+<section id="guerreiro">
+  <div class="content-wrapper">
+
+    <div class="class-section warrior">
+      <div class="class-header warrior" style="position:relative;">
+        <div class="class-color-bar"></div>
+        <div class="class-header-icon" style="padding-left:1rem;">⚔️</div>
+        <div class="class-header-text">
+          <div class="class-header-name">Guerreiro</div>
+          <div class="class-header-motto">"A lâmina que nunca para — disciplina, músculo e vontade de ferro."</div>
+          <div class="class-header-stats">
+            <span class="stat-chip">PV: <strong>10 + MA_FOR + 1d12</strong></span>
+            <span class="stat-chip">MANA: <strong>Nenhuma</strong></span>
+            <span class="stat-chip">ATR. PRIMÁRIO: <strong>FOR ou DES</strong></span>
+            <span class="stat-chip">MAGIA: <strong>—</strong></span>
+          </div>
+          <div class="tag-row" style="margin-top:0.8rem;">
+            <span class="tag">Atletismo</span><span class="tag">Resistência Física</span><span class="tag">Estratégia</span><span class="tag">Intimidação</span><span class="tag">Armas C.C.</span><span class="tag">Armas Dist.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="class-body">
+        <p>O Guerreiro domina o combate por meio de treinamento implacável. Sem magia, sem artifícios — apenas habilidade, resistência e a capacidade brutal de continuar de pé quando todos os outros caíram. É a classe mais simples de jogar e a mais difícil de dominar taticamente.</p>
+
+        <div class="passive-box">
+          <div class="passive-box-title">⚡ Passiva de Classe — Fluxo de Combate</div>
+          <p>Cada ataque bem-sucedido consecutivo contra o <em>mesmo alvo</em> acumula +1 de dano (máximo +Nível). Ao trocar de alvo ou ser atingido, o contador reseta. No nível 10+, o bônus máximo sobe para +Nível×1,5.</p>
+        </div>
+
+        <div class="talent-tree">
+          <div class="talent-tree-title">Árvore de Talentos — Guerreiro</div>
+          <p style="font-size:0.85rem; opacity:0.7; margin-bottom:1.5rem; font-style:italic;">Três ramos: <strong>Campeão</strong> (dano e ataques múltiplos) · <strong>Mestre de Batalha</strong> (manobras e controle) · <strong>Guardião</strong> (resistência e proteção de aliados)</p>
+
+          <!-- NÍVEL 2 -->
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 2 — CAMADA 1 · Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(192,57,43,0.3);">
+              <div class="talent-node">
+                <div class="talent-type">Campeão</div>
+                <div class="talent-name">Golpe Poderoso</div>
+                <div class="talent-desc">+<strong>MA_FOR adicional</strong> ao dano de ataques corpo a corpo. Simples e devastador.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Mestre de Batalha</div>
+                <div class="talent-name">Manobra Tática</div>
+                <div class="talent-desc">1×/combate, execute uma manobra sem custo de PA extra: Derrubar, Empurrar ou Desarmar (teste oposto FOR).</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Guardião</div>
+                <div class="talent-name">Postura Defensiva</div>
+                <div class="talent-desc">Como Ação Menor, entre em Postura: +2 Defesa Física, −1 PA ofensivo até seu próximo turno.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NÍVEL 4 -->
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 4 — CAMADA 2 · Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(192,57,43,0.3);">
+              <div class="talent-node">
+                <div class="talent-type">Campeão</div>
+                <div class="talent-name">Ataque Extra <span class="req-tag">REQ: Golpe Poderoso</span></div>
+                <div class="talent-desc">+1 ataque adicional por turno sem custo de PA extra. No nível 12, este talento concede +2 ataques no total.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Mestre de Batalha</div>
+                <div class="talent-name">Leitura de Campo <span class="req-tag">REQ: Manobra Tática</span></div>
+                <div class="talent-desc">No início de cada combate, identifique automaticamente os <strong>pontos fracos de todos inimigos visíveis</strong>: +1 a ataques contra aqueles com Defesa mais baixa.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Guardião</div>
+                <div class="talent-name">Protetor <span class="req-tag">REQ: Postura Defensiva</span></div>
+                <div class="talent-desc">Como Reação, <strong>interceda por um aliado adjacente</strong>: redirecione o ataque para você. +2 Defesa contra o ataque redirecionado.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MARCO I — NÍVEL 5 -->
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO I — NÍVEL 5 · Habilidade de Marco</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node">
+                <div class="talent-type">Marco · Automático</div>
+                <div class="talent-name">Surto de Combate</div>
+                <div class="talent-desc">1×/combate, como Ação Livre: recupere <strong>+3 PA</strong> imediatamente. Pode ser usado mesmo que você já tenha gasto todos os seus PA neste turno.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NÍVEL 6 -->
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 6 — CAMADA 3 · Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(192,57,43,0.3);">
+              <div class="talent-node">
+                <div class="talent-type">Campeão</div>
+                <div class="talent-name">Crítico Expandido</div>
+                <div class="talent-desc">Acertos críticos ocorrem com d20 <strong>18–20</strong> (em vez de apenas 20). No nível 14, expande para 17–20.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Mestre de Batalha</div>
+                <div class="talent-name">Grito de Guerra</div>
+                <div class="talent-desc">Como Ação Menor (1 PA), ative: aliados em 10m ganham <strong>+2 ataques e +2 Iniciativa</strong> por 3 rodadas. 1×/combate.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Guardião</div>
+                <div class="talent-name">Fortidão</div>
+                <div class="talent-desc">Ganhe <strong>DR Natural = Nível ÷ 4</strong> (arredonde para baixo). Esta DR se acumula com DR de armadura.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NÍVEL 8 -->
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 8 — CAMADA 4 · Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(192,57,43,0.3);">
+              <div class="talent-node">
+                <div class="talent-type">Campeão</div>
+                <div class="talent-name">Especialização de Arma <span class="req-tag">REQ: Crítico Expandido</span></div>
+                <div class="talent-desc">Escolha 1 tipo de arma: +<strong>MA_FOR adicional no dano</strong> e +1 à margem de crítico com ela. Limite: 1 especialização ativa.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Mestre de Batalha</div>
+                <div class="talent-name">Contra-Ataque <span class="req-tag">REQ: Leitura de Campo</span></div>
+                <div class="talent-desc">Quando um inimigo erra um ataque corpo a corpo contra você, como <strong>Reação gratuita</strong>: realize 1 ataque imediato com −2 ao dano.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Guardião</div>
+                <div class="talent-name">Resistência Inabalável <span class="req-tag">REQ: Fortidão</span></div>
+                <div class="talent-desc">1×/combate, quando reduzido a 0 PV: <strong>permaneça de pé com 1 PV</strong>. Este efeito não funciona contra dano instantâneo letal (como Disintegrate).</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NÍVEL 10 -->
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 10 — CAMADA 5 · Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(192,57,43,0.3);">
+              <div class="talent-node">
+                <div class="talent-type">Campeão</div>
+                <div class="talent-name">Fúria Implacável</div>
+                <div class="talent-desc">Ao usar Surto de Combate: todos os ataques naquele turno causam <strong>+50% de dano</strong>. O bônus de Fluxo de Combate não reseta ao usar este talento.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Mestre de Batalha</div>
+                <div class="talent-name">General de Campo</div>
+                <div class="talent-desc">Aliados que ouvem seus comandos (raio 20m) podem usar sua <strong>perícia Estratégia</strong> no lugar da deles para testes de iniciativa e manobras. 3×/combate.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Guardião</div>
+                <div class="talent-name">Escudo Humano</div>
+                <div class="talent-desc">Enquanto adjacente a um aliado, aquele aliado recebe <strong>Resistência 25%</strong> a todos os danos físicos. Você não recebe este bônus.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MARCO II — NÍVEL 10 -->
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO II — NÍVEL 10 · Habilidade de Marco</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node">
+                <div class="talent-type">Marco · Automático</div>
+                <div class="talent-name">Maestria de Armas</div>
+                <div class="talent-desc">Todos os seus ataques ignoram <strong>DR até 10</strong>. Em críticos, role o dado de dano <strong>3 vezes</strong> (não 2) e use a soma.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NÍVEIS 12, 14 -->
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 12 — CAMADA 6 · Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(192,57,43,0.3);">
+              <div class="talent-node">
+                <div class="talent-type">Campeão</div>
+                <div class="talent-name">Tempestade de Golpes <span class="req-tag">REQ: Ataque Extra</span></div>
+                <div class="talent-desc">1×/combate, como Ação Padrão (2 PA): <strong>ataque todos os inimigos</strong> em alcance corpo a corpo com 1 ataque cada (dano normal).</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Mestre de Batalha</div>
+                <div class="talent-name">Provocar <span class="req-tag">REQ: Grito de Guerra</span></div>
+                <div class="talent-desc">Como Ação Menor: force 1 inimigo visível a atacar <strong>apenas você</strong> por 2 rodadas (Save SAB DC 14+FOR para negar).</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Guardião</div>
+                <div class="talent-name">Recuperação de Batalha <span class="req-tag">REQ: Resistência Inabalável</span></div>
+                <div class="talent-desc">2×/combate, como Ação Menor: recupere <strong>1d12 + MA_FOR PV</strong>. No nível 16, aumenta para 2d12 + MA_FOR.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 14 — CAMADA 7 · Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(192,57,43,0.3);">
+              <div class="talent-node">
+                <div class="talent-type">Campeão</div>
+                <div class="talent-name">Golpe Devastador</div>
+                <div class="talent-desc">1×/combate, declare antes de rolar: se acertar, o alvo deve fazer <strong>Save CON DC 10 + Dano Causado ÷ 5</strong> ou fica Atordoado por 1 rodada.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Mestre de Batalha</div>
+                <div class="talent-name">Emboscada Tática</div>
+                <div class="talent-desc">Se você agir antes do alvo no combate: <strong>primeiro ataque causa dano máximo automático</strong>. Não requer surpresa.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Guardião</div>
+                <div class="talent-name">Muralha Viva</div>
+                <div class="talent-desc">Inimigos que tentem passar por você gastam <strong>o dobro de movimento</strong>. Ao bloquear passagem, você pode fazer 1 ataque de oportunidade sem custo de Reação.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MARCO III -->
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO III — NÍVEL 15 · Habilidade de Marco</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node">
+                <div class="talent-type">Marco · Automático</div>
+                <div class="talent-name">Lenda de Aço</div>
+                <div class="talent-desc">+1 PA permanente por turno. Todos os seus <strong>ataques críticos curam 1d10 PV</strong>. Resistência 25% a dano físico quando abaixo de 50% dos PV máximos.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NÍVEIS 16, 18, 20 -->
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 16 — CAMADA 8 · Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(192,57,43,0.3);">
+              <div class="talent-node">
+                <div class="talent-type">Campeão</div>
+                <div class="talent-name">Velocidade Mortal</div>
+                <div class="talent-desc">Cada acerto reduz o custo do próximo ataque em <strong>1 PA</strong> (mínimo 1 PA). O efeito não se acumula mais de 2× por turno.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Mestre de Batalha</div>
+                <div class="talent-name">Visão de Falcão</div>
+                <div class="talent-desc">Você nunca é surpreendido. Sua <strong>Iniciativa mínima</strong> é 15 (trate qualquer resultado menor como 15). Aliados adjacentes ganham +4 Iniciativa.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Guardião</div>
+                <div class="talent-name">Fortaleza Andante</div>
+                <div class="talent-desc">Armadura pesada não reduz sua DES para fins de Defesa. Sua penalidade de Iniciativa por armadura pesada é eliminada.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 18 — CAMADA 9 · Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(192,57,43,0.3);">
+              <div class="talent-node">
+                <div class="talent-type">Campeão</div>
+                <div class="talent-name">Execução</div>
+                <div class="talent-desc">Contra alvos com menos de <strong>25% de PV</strong>, seus ataques causam dano máximo automaticamente (sem rolar dados).</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Mestre de Batalha</div>
+                <div class="talent-name">Strategos Supremo</div>
+                <div class="talent-desc">1×/combate, como Ação Livre: <strong>reordene a iniciativa</strong> de até 3 aliados que você possa ver. Eles agem imediatamente após você neste turno.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Guardião</div>
+                <div class="talent-name">Sacrifício Nobre</div>
+                <div class="talent-desc">1×/combate, ao invés de um aliado a 0 PV: <strong>assuma todo o dano</strong> em seu lugar. Você fica a 1 PV se sobreviver.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 20 — CAMADA 10 · Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(192,57,43,0.3);">
+              <div class="talent-node">
+                <div class="talent-type">Campeão · Épico</div>
+                <div class="talent-name">Avatar da Guerra</div>
+                <div class="talent-desc">Sua <strong>Defesa Física usa FOR + DES</strong> (ambos). Acertos críticos recuperam 1d10 PV. Você não pode ser Atordoado ou Paralisado em combate.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Mestre de Batalha · Épico</div>
+                <div class="talent-name">Warlord Imortal</div>
+                <div class="talent-desc">Aliados que você possa ver nunca falham catastroficamente (falha crítica = falha simples). Surto de Combate recarrega a cada <strong>3 rodadas</strong>.</div>
+              </div>
+              <div class="talent-node">
+                <div class="talent-type">Guardião · Épico</div>
+                <div class="talent-name">Cidadela Viva</div>
+                <div class="talent-desc">Aliados em 5m ganham Resistência 50% a dano físico. Você se torna <strong>imune a Derrubado, Empurrado e Agarrado</strong>. Recuperação de Batalha funciona 5×/combate.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MARCO IV -->
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO IV — NÍVEL 20 · Habilidade de Marco</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node">
+                <div class="talent-type">Marco · Automático</div>
+                <div class="talent-name">Lenda Viva</div>
+                <div class="talent-desc">Surto de Combate passa a conceder <strong>+6 PA</strong>. Resistência Inabalável pode ser usada <strong>3×/combate</strong>. Seu nome é conhecido por toda criatura inteligente — inimigos devem passar em <strong>Save de Medo DC 25</strong> ou ficam Amedrontados ao te encarar.</div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /talent-tree -->
+      </div><!-- /class-body -->
+    </div><!-- /class-section -->
+
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">— ✦ —</span></div>
+
+<!-- ═══════════════════ PALADINO ═══════════════════ -->
+<section id="paladino">
+  <div class="content-wrapper">
+    <div class="class-section paladin">
+      <div class="class-header paladin" style="position:relative;">
+        <div class="class-color-bar"></div>
+        <div class="class-header-icon" style="padding-left:1rem;">🛡️</div>
+        <div class="class-header-text">
+          <div class="class-header-name">Paladino</div>
+          <div class="class-header-motto">"A fé que protege e condena — juramento, aço e graça divina."</div>
+          <div class="class-header-stats">
+            <span class="stat-chip">PV: <strong>10 + MA_FOR + 1d10</strong></span>
+            <span class="stat-chip">MANA: <strong>60% da fórmula</strong></span>
+            <span class="stat-chip">ATR. PRIMÁRIO: <strong>CAR</strong></span>
+            <span class="stat-chip">MAGIA: <strong>N1 – N4 sagrada</strong></span>
+          </div>
+          <div class="tag-row" style="margin-top:0.8rem;">
+            <span class="tag">Liderança</span><span class="tag">Medicina</span><span class="tag">Resist. Mental</span><span class="tag">Diplomacia</span><span class="tag">Atletismo</span><span class="tag">Resist. Mágica</span>
+          </div>
+        </div>
+      </div>
+      <div class="class-body">
+        <p>O Paladino une combate e fé em uma armadura incandescente de propósito. Seu poder vem do juramento — um compromisso inabalável que tanto amplia sua força quanto define seus limites. Quebrar o juramento tem consequências mecânicas severas.</p>
+        <div class="passive-box">
+          <div class="passive-box-title">⚡ Passiva de Classe — Aura de Proteção</div>
+          <p>Aliados em raio 5m ganham <strong>+MA_CAR em todos os Saves</strong>. No nível 10, o raio expande para 10m. No nível 15, aliados também ganham +MA_CAR nas Defesas. Você mesmo não recebe este bônus da própria aura.</p>
+        </div>
+        <div class="talent-tree">
+          <div class="talent-tree-title">Árvore de Talentos — Paladino</div>
+          <p style="font-size:0.85rem; opacity:0.7; margin-bottom:1.5rem; font-style:italic;">Três ramos: <strong>Vingador</strong> (smite e dano sagrado) · <strong>Protetor</strong> (cura e escudo) · <strong>Arauto</strong> (liderança e julgamento)</p>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 2 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(241,196,15,0.3);">
+              <div class="talent-node"><div class="talent-type">Vingador</div><div class="talent-name">Smite Sagrado</div><div class="talent-desc">Após acertar, gaste Mana: <strong>+1d8 radiante por 2 Mana</strong> (máx 3d8). Contra mortos-vivos e demônios: d12 em vez de d8.</div></div>
+              <div class="talent-node"><div class="talent-type">Protetor</div><div class="talent-name">Imposição de Mãos</div><div class="talent-desc">Cura diária total = <strong>5 × Nível PV</strong>, distribuível em toques. Custa 1 PA. Pode curar veneno/doença gastando 5 pontos da reserva.</div></div>
+              <div class="talent-node"><div class="talent-type">Arauto</div><div class="talent-name">Palavra de Comando</div><div class="talent-desc">1×/combate, como Ação Menor: ordene a 1 inimigo visível 1 palavra ("Ajoelha", "Foge", "Para"). Save SAB DC 12+CAR ou o inimigo obedece por 1 rodada.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 4 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(241,196,15,0.3);">
+              <div class="talent-node"><div class="talent-type">Vingador</div><div class="talent-name">Smite Poderoso <span class="req-tag">REQ: Smite Sagrado</span></div><div class="talent-desc">Smite máximo sobe para <strong>5d8 (ou 5d12)</strong>. Em críticos, role todos os dados de Smite duas vezes.</div></div>
+              <div class="talent-node"><div class="talent-type">Protetor</div><div class="talent-name">Cura em Aura <span class="req-tag">REQ: Imposição de Mãos</span></div><div class="talent-desc">Como Ação Menor, gaste pontos de Imposição: <strong>cure 1d6 PV a todos aliados em 5m</strong> por 2 pontos gastos (em vez de só quem você toca).</div></div>
+              <div class="talent-node"><div class="talent-type">Arauto</div><div class="talent-name">Sentença Divina <span class="req-tag">REQ: Palavra de Comando</span></div><div class="talent-desc">Marque 1 inimigo como <strong>Sentenciado</strong>: você e aliados têm +2 em ataques e dano contra ele. Dura até ele morrer ou o combate terminar.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO I — NÍVEL 5</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">Juramento de Ferro</div><div class="talent-desc">Declare seu Juramento (Devoção, Vingança ou Redenção). Cada juramento concede 1 habilidade bônus exclusiva e 1 restrição. Se quebrar o juramento, perde metade do Mana máximo até um ritual de redenção (DC 20, 1 hora).</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 6 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(241,196,15,0.3);">
+              <div class="talent-node"><div class="talent-type">Vingador</div><div class="talent-name">Arma Sagrada</div><div class="talent-desc">Como Ação Menor, consagre sua arma por 1 minuto: <strong>+MA_CAR de dano radiante</strong> em todos os ataques. Ilumina 5m ao redor.</div></div>
+              <div class="talent-node"><div class="talent-type">Protetor</div><div class="talent-name">Escudo da Fé</div><div class="talent-desc">Conjure um escudo mágico em 1 aliado visível (Ação Menor): <strong>+5 Defesa Física e +5 Defesa Mágica</strong> por 3 rodadas. 2×/combate.</div></div>
+              <div class="talent-node"><div class="talent-type">Arauto</div><div class="talent-name">Presença Intimidante</div><div class="talent-desc">Ao entrar em combate, inimigos em 10m devem Save SAB DC 12+CAR ou ficam <strong>Amedrontados por 2 rodadas</strong>. 1×/combate.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 8 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(241,196,15,0.3);">
+              <div class="talent-node"><div class="talent-type">Vingador</div><div class="talent-name">Golpe Divino <span class="req-tag">REQ: Arma Sagrada</span></div><div class="talent-desc">1×/combate, combine Smite com Arma Sagrada em 1 ataque: <strong>dano total ×1,5</strong> e o alvo deve Save CON DC 14+CAR ou fica Cego por 2 rodadas (luz divina).</div></div>
+              <div class="talent-node"><div class="talent-type">Protetor</div><div class="talent-name">Remédio Sagrado <span class="req-tag">REQ: Escudo da Fé</span></div><div class="talent-desc">Imposição de Mãos agora remove automaticamente: Veneno, Doença, Paralisia e Cegueira — sem custo adicional de pontos.</div></div>
+              <div class="talent-node"><div class="talent-type">Arauto</div><div class="talent-name">Juízo Final <span class="req-tag">REQ: Sentença Divina</span></div><div class="talent-desc">Alvo Sentenciado: quando morrer, <strong>explode em luz sagrada</strong> causando 3d8 radiante a todos inimigos em 5m (Save DES DC 14+CAR para metade).</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 10 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(241,196,15,0.3);">
+              <div class="talent-node"><div class="talent-type">Vingador</div><div class="talent-name">Flagelo do Ímpio</div><div class="talent-desc">Contra criaturas malignas, mortos-vivos e demônios: seu dano total é <strong>multiplicado por 1,5</strong>. Smite contra esses alvos não consome Mana (gratuito).</div></div>
+              <div class="talent-node"><div class="talent-type">Protetor</div><div class="talent-name">Âncora Divina</div><div class="talent-desc">Aliados em 10m são imunes a Medo e Charme. Aliados em 5m não podem ser Paralisados enquanto você estiver de pé.</div></div>
+              <div class="talent-node"><div class="talent-type">Arauto</div><div class="talent-name">Proclamação de Guerra</div><div class="talent-desc">1×/combate (Ação Livre): todos os aliados em 15m ganham <strong>+2 PA no próximo turno</strong> e curam 1d8+MA_CAR PV imediatamente.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO II — NÍVEL 10</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">Sagrado e Inquebrantável</div><div class="talent-desc">1×/dia, quando reduzido a 0 PV: <strong>permaneça com PV = MA_CAR × 3</strong> e todos os aliados em 10m recuperam 2d8+MA_CAR PV por explosão de energia divina.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 12 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(241,196,15,0.3);">
+              <div class="talent-node"><div class="talent-type">Vingador</div><div class="talent-name">Ira Santa</div><div class="talent-desc">Quando um aliado cai a 0 PV, você entra em <strong>Ira Santa automática</strong> por 3 rodadas: +4 ataques, dano máximo no primeiro ataque de cada turno, imunidade a Medo.</div></div>
+              <div class="talent-node"><div class="talent-type">Protetor</div><div class="talent-name">Cura em Massa</div><div class="talent-desc">Imposição de Mãos pode ser usada como Ação Padrão (2 PA) para curar <strong>todos aliados em 10m simultaneamente</strong> com 1d8+CAR cada (gasta pontos normalmente).</div></div>
+              <div class="talent-node"><div class="talent-type">Arauto</div><div class="talent-name">Tribunal Divino</div><div class="talent-desc">Você pode realizar um <strong>Julgamento Divino</strong> como ritual de 1 minuto: detecta mentiras, crimes e alinhamento moral de 1 criatura. O alvo deve Save CAR DC 18+CAR ou confessa sua maior culpa.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 14 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(241,196,15,0.3);">
+              <div class="talent-node"><div class="talent-type">Vingador</div><div class="talent-name">Execução Sagrada</div><div class="talent-desc">1×/combate: 1 ataque com dano <strong>automaticamente máximo</strong>. Se o alvo for morto, todos aliados em 10m recuperam 1d10+MA_CAR PV.</div></div>
+              <div class="talent-node"><div class="talent-type">Protetor</div><div class="talent-name">Bastião Imortal</div><div class="talent-desc">Enquanto de pé, aliados em 5m não podem morrer — ao chegarem a 0 PV ficam <em>Moribundos</em> (1 PV, Incapacitados) em vez de mortos. Dura até você cair.</div></div>
+              <div class="talent-node"><div class="talent-type">Arauto</div><div class="talent-name">Voz de Deus</div><div class="talent-desc">Como Ação Padrão, emita um <strong>Grito Sagrado</strong>: cone de 12m, todos inimigos devem Save SAB DC 16+CAR ou ficam Atordoados por 1 rodada e perdem sua próxima Reação.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO III — NÍVEL 15</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">Juramento Absoluto</div><div class="talent-desc">Você se torna <strong>imune a Charme, Medo e Possessão</strong>. Mortos-vivos e demônios em 5m sofrem 2d6 radiante no início do seu turno. Smite agora pode ser usado em ataques mágicos.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 16 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(241,196,15,0.3);">
+              <div class="talent-node"><div class="talent-type">Vingador</div><div class="talent-name">Lâmina Celestial</div><div class="talent-desc">Sua arma conta como +3 mágica para fins de vencer resistências. Seu dano de arma muda para <strong>Radiante</strong> (ignora DR física). Smite máximo sobe para 8d12.</div></div>
+              <div class="talent-node"><div class="talent-type">Protetor</div><div class="talent-name">Santuário Ambulante</div><div class="talent-desc">Aliados em 5m ganham <strong>Resistência 25% a todos os danos</strong> (não só físico). Você absorve o excedente como PV temporários (máx MA_CAR×2/rodada).</div></div>
+              <div class="talent-node"><div class="talent-type">Arauto</div><div class="talent-name">Presença Divina</div><div class="talent-desc">Enquanto você estiver visível, inimigos com Desafio ≤ seu nível devem passar em <strong>Save de Medo DC 20+CAR</strong> para atacar aliados seus.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 18 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(241,196,15,0.3);">
+              <div class="talent-node"><div class="talent-type">Vingador</div><div class="talent-name">Fúria Angelical</div><div class="talent-desc">1×/dia, por 1 minuto: asas de luz (voo 20m/rodada), imunidade a dano não-mágico, Smite é gratuito em todos os ataques, +4 PA/turno.</div></div>
+              <div class="talent-node"><div class="talent-type">Protetor</div><div class="talent-name">Ressurreição</div><div class="talent-desc">1×/semana: toque em 1 criatura morta há menos de 24h; ela retorna com <strong>PV = MA_CAR × 5</strong>. Custa 30 pontos de Imposição de Mãos (pode ser acumulado).</div></div>
+              <div class="talent-node"><div class="talent-type">Arauto</div><div class="talent-name">Decreto Celestial</div><div class="talent-desc">1×/dia, como Ação Padrão: selecione 1 criatura em 30m. Por 10 minutos, ela fica <strong>Banida</strong> para um plano adjacente (Save CAR DC 20+CAR nega). Não funciona em divindades.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 20 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(241,196,15,0.3);">
+              <div class="talent-node"><div class="talent-type">Vingador · Épico</div><div class="talent-name">Campeão Divino</div><div class="talent-desc">Smite nunca consome Mana. Críticos com Smite são automáticos contra mortos-vivos e demônios. Fúria Angelical recarrega diariamente.</div></div>
+              <div class="talent-node"><div class="talent-type">Protetor · Épico</div><div class="talent-name">Escudo do Eterno</div><div class="talent-desc">Aliados em 10m são imunes a morte instantânea. Imposição de Mãos recarrega completamente a cada <strong>Descanso Curto</strong> (não apenas longo).</div></div>
+              <div class="talent-node"><div class="talent-type">Arauto · Épico</div><div class="talent-name">Avatar do Juízo</div><div class="talent-desc">Sua Aura de Proteção dobra de bônus (MA_CAR × 2). Aliados que morram em sua presença podem fazer 1 teste final de Medicina DC 20 para se estabilizarem sozinhos.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO IV — NÍVEL 20</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">Avatar Divino</div><div class="talent-desc">1×/dia, por 10 minutos: Resistência 50% a todos os danos, +4 PA/turno, Smite não consome Mana, sua Aura expande para 20m e concede Regeneração 5 PV/rodada a aliados.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">— ✦ —</span></div>
+
+<!-- ═══════════════════ RANGER ═══════════════════ -->
+<section id="ranger">
+  <div class="content-wrapper">
+    <div class="class-section ranger">
+      <div class="class-header ranger" style="position:relative;">
+        <div class="class-color-bar"></div>
+        <div class="class-header-icon" style="padding-left:1rem;">🏹</div>
+        <div class="class-header-text">
+          <div class="class-header-name">Ranger</div>
+          <div class="class-header-motto">"O olho que nunca perde — rastros, flechas e instinto afiado."</div>
+          <div class="class-header-stats">
+            <span class="stat-chip">PV: <strong>10 + MA_FOR + 1d10</strong></span>
+            <span class="stat-chip">MANA: <strong>40% da fórmula</strong></span>
+            <span class="stat-chip">ATR. PRIMÁRIO: <strong>DES</strong></span>
+            <span class="stat-chip">MAGIA: <strong>N1 – N3 natural</strong></span>
+          </div>
+          <div class="tag-row" style="margin-top:0.8rem;">
+            <span class="tag">Rastreamento</span><span class="tag">Sobrevivência</span><span class="tag">Percepção</span><span class="tag">Furtividade</span><span class="tag">Armas Dist.</span><span class="tag">Medicina</span>
+          </div>
+        </div>
+      </div>
+      <div class="class-body">
+        <p>O Ranger é um predador especializado — mestre do terreno, caçador de monstros e sobrevivente de condições que matariam qualquer outro. Seus três ramos refletem filosofias distintas: o Caçador que elimina alvos específicos, o Explorador que domina o ambiente, e o Protetor que defende sua terra natal.</p>
+        <div class="passive-box">
+          <div class="passive-box-title">⚡ Passiva de Classe — Inimigo Predileto</div>
+          <p>Escolha 1 tipo de criatura no Nível 1 (bestial, humanoide, morto-vivo, draconico, etc.). <strong>+2 em todos os testes contra esse tipo</strong> (ataques, rastreamento, saves, perícias). Sobe para +4 no Nível 10 e +6 no Nível 15. Um segundo tipo pode ser escolhido no Marco II.</p>
+        </div>
+        <div class="talent-tree">
+          <div class="talent-tree-title">Árvore de Talentos — Ranger</div>
+          <p style="font-size:0.85rem; opacity:0.7; margin-bottom:1.5rem; font-style:italic;">Três ramos: <strong>Caçador</strong> (dano single-target e precisão) · <strong>Explorador</strong> (mobilidade e terreno) · <strong>Guardião da Terra</strong> (aliados e natureza)</p>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 2 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(39,174,96,0.3);">
+              <div class="talent-node"><div class="talent-type">Caçador</div><div class="talent-name">Tiro Preciso</div><div class="talent-desc">Ignore penalidade de cobertura parcial. Ataques à distância custam <strong>1 PA</strong> (em vez de 2 PA).</div></div>
+              <div class="talent-node"><div class="talent-type">Explorador</div><div class="talent-name">Terreno Favorito</div><div class="talent-desc">Escolha 1 tipo de terreno (floresta, montanha, subterrâneo, etc.): sem terreno difícil, +3 Percepção e Furtividade nesse ambiente. +1 Iniciativa sempre.</div></div>
+              <div class="talent-node"><div class="talent-type">Guardião</div><div class="talent-name">Cuidado com a Caça</div><div class="talent-desc">Como Ação Menor, aplique <strong>ervas medicinais</strong>: cure 1d8+DES PV em 1 aliado. 2×/combate. Em ambiente natural: cura sobe para 2d8+DES.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 4 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(39,174,96,0.3);">
+              <div class="talent-node"><div class="talent-node"><div class="talent-type">Caçador</div><div class="talent-name">Marca da Presa <span class="req-tag">REQ: Tiro Preciso</span></div><div class="talent-desc">Como Ação Menor, marque 1 alvo: <strong>+1d6 de dano em todos os ataques</strong> contra ele. Se morrer, mova a marca para outro alvo (Ação Livre). Dura o combate inteiro.</div></div></div>
+              <div class="talent-node"><div class="talent-type">Explorador</div><div class="talent-name">Passagem Rápida <span class="req-tag">REQ: Terreno Favorito</span></div><div class="talent-desc">Sua velocidade de movimento aumenta em <strong>+6m permanentemente</strong>. Você pode Dashar (dobrar movimento) como Ação Menor (1 PA) em vez de Padrão.</div></div>
+              <div class="talent-node"><div class="talent-type">Guardião</div><div class="talent-name">Alerta Natural <span class="req-tag">REQ: Cuidado com a Caça</span></div><div class="talent-desc">Você e aliados em 10m nunca são surpreendidos em ambientes naturais. Em qualquer ambiente, +3 Percepção passiva para detectar emboscadas.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO I — NÍVEL 5</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">Instinto de Predador</div><div class="talent-desc">Você pode realizar <strong>2 ataques à distância no mesmo PA</strong> se ambos forem contra o mesmo alvo (ou alvos adjacentes). Contra seu Inimigo Predileto: primeiro ataque é automaticamente Acerto Elevado.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 6 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(39,174,96,0.3);">
+              <div class="talent-node"><div class="talent-type">Caçador</div><div class="talent-name">Flecha Perfurante</div><div class="talent-desc">1×/turno, seu ataque à distância pode <strong>atingir 2 alvos em linha reta</strong> com o mesmo roll de ataque. Segundo alvo sofre −2 no resultado do dano.</div></div>
+              <div class="talent-node"><div class="talent-type">Explorador</div><div class="talent-name">Escalada Fluida</div><div class="talent-desc">Velocidade de escalada = velocidade normal. Pode escalar e atacar no mesmo turno sem penalidade. Em superfícies irregulares, ganhe <strong>+4 Defesa</strong>.</div></div>
+              <div class="talent-node"><div class="talent-type">Guardião</div><div class="talent-name">Veneno Natural</div><div class="talent-desc">Como Ação Menor, aplique veneno extraído na arma: <strong>+2d6 veneno por 3 rodadas</strong> (Save CON DC 13+DES para metade/rodada). Extraia veneno de criaturas mortas como ritual de 1 min.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 8 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(39,174,96,0.3);">
+              <div class="talent-node"><div class="talent-type">Caçador</div><div class="talent-name">Tiro Vital <span class="req-tag">REQ: Marca da Presa</span></div><div class="talent-desc">1×/combate: declare Tiro Vital antes de atacar. Se acertar o alvo Marcado: <strong>cause dano máximo + 2d10 extra</strong>. O alvo deve Save CON DC 15+DES ou sangra por 3 rodadas (1d6/rodada).</div></div>
+              <div class="talent-node"><div class="talent-type">Explorador</div><div class="talent-name">Fantasma da Floresta <span class="req-tag">REQ: Passagem Rápida</span></div><div class="talent-desc">Você pode se esconder como <strong>Ação Livre</strong> (0 PA) se houver cobertura disponível. Ataques de posição oculta não revelam sua posição se você se mover imediatamente após.</div></div>
+              <div class="talent-node"><div class="talent-type">Guardião</div><div class="talent-name">Companheiro Animal <span class="req-tag">REQ: Alerta Natural</span></div><div class="talent-desc">Um animal permanente (lobo, falcão, pantera) age no seu turno com <strong>2 PA próprios</strong>. PV = 50% dos seus. Morre definitivamente, não é substituível sem ritual de 1 semana.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 10 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(39,174,96,0.3);">
+              <div class="talent-node"><div class="talent-type">Caçador</div><div class="talent-name">Saraivada Mortal</div><div class="talent-desc">1×/combate (Ação Padrão): ataque <strong>todos os inimigos em cone de 12m</strong> com 1 ataque cada. Dano normal. Pode ativar junto com Marca da Presa no alvo principal.</div></div>
+              <div class="talent-node"><div class="talent-type">Explorador</div><div class="talent-name">Segundo Terreno</div><div class="talent-desc">Escolha um <strong>segundo Terreno Favorito</strong>. Em qualquer ambiente: você nunca fica perdido e sempre sabe o norte. Velocidade de movimento +3m adicional (cumulativo).</div></div>
+              <div class="talent-node"><div class="talent-type">Guardião</div><div class="talent-name">Elo Telepático <span class="req-tag">REQ: Companheiro Animal</span></div><div class="talent-desc">Comunicação mental com Companheiro em 1km. Você pode ver/ouvir através dele (Ação Menor). Companheiro ganha +50% PV e age com 3 PA.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO II — NÍVEL 10</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">Segundo Inimigo Predileto</div><div class="talent-desc">Escolha um segundo tipo de Inimigo Predileto. Contra <strong>ambos os tipos</strong>, o bônus sobe para +4 (e +6 no N15). Você detecta automaticamente criaturas desses tipos em 60m (percepção passiva).</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 12 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(39,174,96,0.3);">
+              <div class="talent-node"><div class="talent-type">Caçador</div><div class="talent-name">Emboscador Supremo</div><div class="talent-desc">Se você atacar um alvo que não sabe de sua presença: <strong>dano automático máximo</strong> no primeiro ataque. Ganhe +4 Iniciativa se o combate começar como emboscada sua.</div></div>
+              <div class="talent-node"><div class="talent-type">Explorador</div><div class="talent-name">Adaptação Extrema</div><div class="talent-desc">Imunidade a efeitos climáticos extremos (calor, frio, tempestade). Em qualquer terreno, some 1 ponto de Exaustão a menos a cada hora. Pode sobreviver sem comida/água por Nível × 3 dias.</div></div>
+              <div class="talent-node"><div class="talent-type">Guardião</div><div class="talent-name">Alcateia</div><div class="talent-desc">Convoque 1d4 animais selvagens como ação de combate (Ação Padrão). Eles agem por 3 rodadas e seguem comandos simples. Animais de CR ≤ Nível÷4.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 14 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(39,174,96,0.3);">
+              <div class="talent-node"><div class="talent-type">Caçador</div><div class="talent-name">Caçador de Cabeças</div><div class="talent-desc">Marca da Presa agora pode ser aplicada a <strong>3 alvos simultâneos</strong>. Bônus de dano sobe para 2d6. Ao eliminar alvo Marcado: recupere 1 PA imediatamente.</div></div>
+              <div class="talent-node"><div class="talent-type">Explorador</div><div class="talent-name">Teletransporte Silvático</div><div class="talent-desc">1×/combate, como Ação Livre: teleporte para qualquer posição em 15m que você tenha visitado neste combate (ou que possa ver). Movimento não provoca ataques de oportunidade.</div></div>
+              <div class="talent-node"><div class="talent-type">Guardião</div><div class="talent-name">Vínculos da Natureza</div><div class="talent-desc">Crie um <strong>círculo protetor</strong> de 10m (Ação Padrão, 1×/combate): terreno difícil para inimigos, aliados com +3 Defesa, dura 5 rodadas.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO III — NÍVEL 15</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">Lenda das Terras Selvagens</div><div class="talent-desc">Companheiro Animal agora é lendário: PV = 80% dos seus, 4 PA, pode usar sua perícia de Armas à Distância. Em sua presença, animais selvagens nunca o atacam primeiro. Rastreamento não tem limite de tempo.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 16 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(39,174,96,0.3);">
+              <div class="talent-node"><div class="talent-type">Caçador</div><div class="talent-name">Tiro Lendário</div><div class="talent-desc">1×/combate: 1 ataque que <strong>ignora todas as Defesas e Resistências</strong>. Role dano diretamente. Alcance +50m.</div></div>
+              <div class="talent-node"><div class="talent-type">Explorador</div><div class="talent-name">Espectro da Floresta</div><div class="talent-desc">Você pode se mover em <strong>invisibilidade natural</strong> (sem magia) se não estiver em terreno aberto. Velocidade de movimento +12m total acumulado.</div></div>
+              <div class="talent-node"><div class="talent-type">Guardião</div><div class="talent-name">Guardião do Mundo</div><div class="talent-desc">Em combate a céu aberto ou em natureza: você e aliados em 20m ganham <strong>Regeneração 3 PV/rodada</strong>. Animais convocados têm +100% PV.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 18 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(39,174,96,0.3);">
+              <div class="talent-node"><div class="talent-type">Caçador</div><div class="talent-name">Morte Sussurrada</div><div class="talent-desc">Tiro Vital recarrega a cada 3 rodadas (não 1×/combate). Se o alvo falhar no Save de sangramento: hemorragia severa (3d6/rodada). Alcance máximo de seus ataques dobra.</div></div>
+              <div class="talent-node"><div class="talent-type">Explorador</div><div class="talent-name">Sobrevivente Lendário</div><div class="talent-desc">1×/combate, ao receber dano letal: reduza-o automaticamente para 1 PV. Você regenera 5 PV/rodada quando estiver em ambiente natural.</div></div>
+              <div class="talent-node"><div class="talent-type">Guardião</div><div class="talent-name">Manada Épica</div><div class="talent-desc">Convoque 2d6 animais épicos (Alcateia aprimorada). Convocação dura 10 rodadas. Você pode comandá-los com Ação Livre.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 20 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(39,174,96,0.3);">
+              <div class="talent-node"><div class="talent-type">Caçador · Épico</div><div class="talent-name">Caçador sem Par</div><div class="talent-desc">Contra seus Inimigos Prediletos: dano sempre máximo, crítico automático no primeiro ataque por combate, Tiro Vital funciona 3×/combate.</div></div>
+              <div class="talent-node"><div class="talent-type">Explorador · Épico</div><div class="talent-name">Senhor do Horizonte</div><div class="talent-desc">Você pode mover-se através de qualquer terreno sem restrições. Teleporte Silvático: 3×/combate, distância 30m.</div></div>
+              <div class="talent-node"><div class="talent-type">Guardião · Épico</div><div class="talent-name">O Lobo e a Floresta</div><div class="talent-desc">Companheiro Animal torna-se lendário único (CR = Nível). Alcateia convoca 3d8 criaturas. Regeneração de aliados aumenta para 8 PV/rodada.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO IV — NÍVEL 20</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">Apex Predator</div><div class="talent-desc">Você é reconhecido como a criatura mais perigosa de qualquer ecossistema que habitar. Tiro Lendário recarrega a cada 5 rodadas. Bônus contra Inimigos Prediletos sobe para +8.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">— ✦ —</span></div>
+
+<!-- ═══════════════════ LADINO ═══════════════════ -->
+<section id="ladino">
+  <div class="content-wrapper">
+    <div class="class-section rogue">
+      <div class="class-header rogue" style="position:relative;">
+        <div class="class-color-bar"></div>
+        <div class="class-header-icon" style="padding-left:1rem;">🗡️</div>
+        <div class="class-header-text">
+          <div class="class-header-name">Ladino</div>
+          <div class="class-header-motto">"O que ninguém viu chegar — sombras, veneno e ouro."</div>
+          <div class="class-header-stats">
+            <span class="stat-chip">PV: <strong>10 + MA_FOR + 1d8</strong></span>
+            <span class="stat-chip">MANA: <strong>20% da fórmula</strong></span>
+            <span class="stat-chip">ATR. PRIMÁRIO: <strong>DES</strong></span>
+            <span class="stat-chip">MAGIA: <strong>N0 – N1 (truques)</strong></span>
+          </div>
+          <div class="tag-row" style="margin-top:0.8rem;">
+            <span class="tag">Furtividade</span><span class="tag">Acrobacia</span><span class="tag">Enganação</span><span class="tag">Investigação</span><span class="tag">Arrombamento</span><span class="tag">Percepção</span>
+          </div>
+        </div>
+      </div>
+      <div class="class-body">
+        <p>O Ladino não joga segundo as regras — ele joga segundo as <em>suas</em> regras. Especialista em explorar brechas, pontos cegos e desvantagens do inimigo, o Ladino raramente combate de frente. Seus ramos refletem três filosofias criminosas: o Assassino que mata antes do alvo perceber, o Vigarista que manipula o campo de batalha, e o Ladrão de Sombras que some e reaparece onde não deveria.</p>
+        <div class="passive-box">
+          <div class="passive-box-title">⚡ Passiva de Classe — Ataque Furtivo</div>
+          <p>Se o alvo estiver desprevenido, flanqueado, com Desvantagem em ataques, ou você estiver invisível: <strong>+Nível de dano adicional no primeiro ataque por turno</strong>. Tipo de dano igual à arma usada. No Nível 10, sobe para <strong>+Nível×1,5</strong>.</p>
+        </div>
+        <div class="talent-tree">
+          <div class="talent-tree-title">Árvore de Talentos — Ladino</div>
+          <p style="font-size:0.85rem; opacity:0.7; margin-bottom:1.5rem; font-style:italic;">Três ramos: <strong>Assassino</strong> (dano máximo em primeiro ataque) · <strong>Vigarista</strong> (controle, enganação e magia menor) · <strong>Ladrão de Sombras</strong> (furtividade extrema e mobilidade)</p>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 2 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(142,68,173,0.3);">
+              <div class="talent-node"><div class="talent-type">Assassino</div><div class="talent-name">Golpe Traiçoeiro</div><div class="talent-desc">Se você atacar um alvo que ainda não agiu neste combate: <strong>Ataque Furtivo causa dano ×2</strong> neste ataque específico.</div></div>
+              <div class="talent-node"><div class="talent-type">Vigarista</div><div class="talent-name">Mãos Habilidosas</div><div class="talent-desc">Roubar, sabotar ou plantar objetos como <strong>Ação Livre</strong>. Pode usar Enganação em combate (Ação Menor) para criar Desvantagem em 1 inimigo por 1 rodada.</div></div>
+              <div class="talent-node"><div class="talent-type">Sombras</div><div class="talent-name">Passo de Sombra</div><div class="talent-desc">Pode se esconder como Ação Menor se houver qualquer penumbra ou cobertura. Movimento furtivo à velocidade normal sem penalidade de Furtividade.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 4 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(142,68,173,0.3);">
+              <div class="talent-node"><div class="talent-type">Assassino</div><div class="talent-name">Veneno de Contato <span class="req-tag">REQ: Golpe Traiçoeiro</span></div><div class="talent-desc">Aplique veneno em arma (Ação Menor): <strong>+2d6 veneno por 4 rodadas</strong> (Save CON DC 12+DES). 3 doses por descanso longo.</div></div>
+              <div class="talent-node"><div class="talent-type">Vigarista</div><div class="talent-name">Rosto de Mil Faces <span class="req-tag">REQ: Mãos Habilidosas</span></div><div class="talent-desc">Disfarce perfeito em 1 minuto. Em social: Vantagem em todos os testes de Enganação e Diplomacia. <strong>NPCs neutros nunca te atacam primeiro</strong> sem provocação.</div></div>
+              <div class="talent-node"><div class="talent-type">Sombras</div><div class="talent-name">Deslizar pelas Sombras <span class="req-tag">REQ: Passo de Sombra</span></div><div class="talent-desc">Em escuridão ou penumbra: <strong>invisibilidade parcial</strong> permanente. Ataques contra você têm −4. Você não precisa parar de se mover para se esconder.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO I — NÍVEL 5</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">Reflexos de Gato</div><div class="talent-desc">Esquiva Reflexa permanente: em efeitos de área com save de DES, <strong>Sucesso = sem dano; Falha = metade</strong>. Além disso, nunca fica Surpreso — mesmo dormindo, age na primeira rodada.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 6 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(142,68,173,0.3);">
+              <div class="talent-node"><div class="talent-type">Assassino</div><div class="talent-name">Ponto Vital</div><div class="talent-desc">1×/combate: declare antes de atacar. Se acertar e Ataque Furtivo aplicar: <strong>alvo deve Save CON DC 14+DES ou fica Incapacitado por 1 rodada</strong> (alvo humanoide de tamanho Médio ou menor).</div></div>
+              <div class="talent-node"><div class="talent-type">Vigarista</div><div class="talent-name">Artes Arcanas Menores</div><div class="talent-desc">Aprenda 3 cantrips de Ilusão ou Encantamento. Custo 0 Mana. Não revelam sua posição se usados de forma oculta.</div></div>
+              <div class="talent-node"><div class="talent-type">Sombras</div><div class="talent-name">Golpe das Sombras</div><div class="talent-desc">Ao sair de invisibilidade ou furtividade para atacar: <strong>Ataque Furtivo aplica automaticamente</strong>, independente de flanqueamento ou surpresa. Pode retornar à furtividade como Ação Livre após atacar (1×/turno).</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 8 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(142,68,173,0.3);">
+              <div class="talent-node"><div class="talent-type">Assassino</div><div class="talent-name">Kit do Assassino <span class="req-tag">REQ: Veneno de Contato</span></div><div class="talent-desc">Veneno causa <strong>4d6 por rodada</strong>. Além disso: sua primeira arma equipada tem +2 mágico permanente. Doses de veneno: 5 por descanso longo.</div></div>
+              <div class="talent-node"><div class="talent-type">Vigarista</div><div class="talent-name">Ilusão Convincente <span class="req-tag">REQ: Artes Arcanas Menores</span></div><div class="talent-desc">1×/combate (Ação Menor): crie ilusão auditiva ou visual em 10m. Inimigos que acreditarem na ilusão ficam Distraídos (−2 Defesas) por 2 rodadas ou até investigarem.</div></div>
+              <div class="talent-node"><div class="talent-type">Sombras</div><div class="talent-name">Passo Etéreo <span class="req-tag">REQ: Deslizar pelas Sombras</span></div><div class="talent-desc">1×/combate: teletransporte-se para qualquer ponto em 10m que esteja em sombra ou escuridão, sem custo de PA. Pode ser usado como Reação para evitar um ataque.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 10 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(142,68,173,0.3);">
+              <div class="talent-node"><div class="talent-type">Assassino</div><div class="talent-name">Morte Silenciosa</div><div class="talent-desc">Se Ataque Furtivo reduzir alvo a 0 PV: <strong>ninguém ao redor percebe</strong> (Percepção DC = 10 + Nível + DES). Recupere 1 PA imediatamente. O corpo não emite sangue visível por 1 rodada.</div></div>
+              <div class="talent-node"><div class="talent-type">Vigarista</div><div class="talent-name">Mente Escorregadia</div><div class="talent-desc"><strong>Resistência a Encantamento e Ilusão</strong>. Vantagem em saves contra Charme, Medo e Compulsão. 1×/dia, anule automaticamente 1 efeito de controle mental sem save.</div></div>
+              <div class="talent-node"><div class="talent-type">Sombras</div><div class="talent-name">Alma de Sombra</div><div class="talent-desc">Entre em <strong>Semi-Visibilidade como Ação Livre</strong>: −6 para ser detectado. Em invisibilidade total, primeiro ataque é automaticamente Crítico. Duração ilimitada enquanto não atacar.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO II — NÍVEL 10</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">Lâmina Inevitável</div><div class="talent-desc">Ataque Furtivo agora pode se aplicar <strong>2× por turno</strong> (em ataques diferentes). Veneno de qualquer tipo que você aplica ignora Resistência a Veneno.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 12 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(142,68,173,0.3);">
+              <div class="talent-node"><div class="talent-type">Assassino</div><div class="talent-name">Maestria do Veneno</div><div class="talent-desc">Crie <strong>venenos personalizados</strong>: escolha efeito (paralisia, cegueira, sono, lentidão) além do dano. Save DC aumenta para 18+DES. Imunidade a todos os venenos.</div></div>
+              <div class="talent-node"><div class="talent-type">Vigarista</div><div class="talent-name">Espelho Perfeito</div><div class="talent-desc">Imite a voz, aparência e maneirismos de qualquer pessoa que tenha observado por 1 hora. Identificação requer Save INT DC 20+CAR. Útil em roleplay e missões furtivas.</div></div>
+              <div class="talent-node"><div class="talent-type">Sombras</div><div class="talent-name">Sombra entre Sombras</div><div class="talent-desc">Passo Etéreo: alcance 20m, 3×/combate. Em escuridão completa: invisibilidade total permanente (não apenas parcial).</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 14 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(142,68,173,0.3);">
+              <div class="talent-node"><div class="talent-type">Assassino</div><div class="talent-name">Contrato Mortal</div><div class="talent-desc">Antes do combate (ritual de 1 min): designe 1 alvo como <strong>Contrato</strong>. Todos os ataques contra o Contrato são Acertos Elevados no mínimo. Ponto Vital funciona 3×/combate contra o Contrato.</div></div>
+              <div class="talent-node"><div class="talent-type">Vigarista</div><div class="talent-name">Truque da Lua</div><div class="talent-desc">1×/combate (Ação Livre): crie um <strong>duplo ilusório</strong> que age durante 3 rodadas. Ataques têm 50% de chance de atingir o duplo em vez de você. O duplo pode atacar (sem dano real).</div></div>
+              <div class="talent-node"><div class="talent-type">Sombras</div><div class="talent-name">Nexo das Sombras</div><div class="talent-desc">Crie <strong>2 pontos âncora</strong> na arena como Ação Menor. Teleporte entre eles ilimitadamente como Ação Livre. Pontos duram o combate inteiro.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO III — NÍVEL 15</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">Sombra Absoluta</div><div class="talent-desc">Você não deixa rastros, sons ou odores — nenhuma perícia ou magia abaixo de N5 pode te detectar quando estiver furtivo. Ataque Furtivo sobe para <strong>+Nível×2</strong> de dano.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 16 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(142,68,173,0.3);">
+              <div class="talent-node"><div class="talent-type">Assassino</div><div class="talent-name">Morte Imediata</div><div class="talent-desc">1×/dia: 1 ataque com save ou morte. Se acertar e o alvo falhar em <strong>Save CON DC 15 + Dano Causado ÷ 5</strong>: morte instantânea (não funciona em Chefes ou PJ).</div></div>
+              <div class="talent-node"><div class="talent-type">Vigarista</div><div class="talent-name">Mestre Ilusionista</div><div class="talent-desc">Acesso a magias de Ilusão até N3 (sem Mana adicional). Ilusões que você cria têm DC de detecção +5 além do normal. Ilusões persistem 1 hora sem concentração.</div></div>
+              <div class="talent-node"><div class="talent-type">Sombras</div><div class="talent-name">Incorporação</div><div class="talent-desc">1×/combate, como Reação: torne-se <strong>Etéreo por 2 rodadas</strong>. Etéreo: imune a dano físico, pode mover-se através de paredes, ataques mágicos têm 50% de miss.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 18 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(142,68,173,0.3);">
+              <div class="talent-node"><div class="talent-type">Assassino</div><div class="talent-name">Phantasm Killer</div><div class="talent-desc">Ataque Furtivo agora funciona contra qualquer alvo em qualquer condição — sem precisar de surpresa ou flanqueamento. Dano sobe para <strong>+Nível×2,5</strong>.</div></div>
+              <div class="talent-node"><div class="talent-type">Vigarista</div><div class="talent-name">Controle Mental Menor</div><div class="talent-desc">1×/dia: magia de Dominação como efeito de classe (sem custo de Mana). Alvo deve Save SAB DC 18+DES ou fica sob seu controle por 1 hora.</div></div>
+              <div class="talent-node"><div class="talent-type">Sombras</div><div class="talent-name">Teletransporte de Sombra</div><div class="talent-desc">1×/combate: teletransporte para <strong>qualquer sombra que você possa ver</strong>, sem limite de distância. Pode levar 1 aliado voluntário.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 20 — Escolha 1</div>
+            <div class="tree-talents" style="border-color:rgba(142,68,173,0.3);">
+              <div class="talent-node"><div class="talent-type">Assassino · Épico</div><div class="talent-name">Morte Sem Rosto</div><div class="talent-desc">Morte Imediata: 3×/dia. Morte Silenciosa: ninguém em nenhum raio percebe o kill. Ataque Furtivo: dano máximo automático contra alvos surpreendidos.</div></div>
+              <div class="talent-node"><div class="talent-type">Vigarista · Épico</div><div class="talent-name">Rei dos Ladrões</div><div class="talent-desc">Nunca falha em testes sociais contra NPCs comuns. Acesso a qualquer magia de Ilusão e Encantamento até N4 (sem Mana). Duplo ilusório: 5×/combate.</div></div>
+              <div class="talent-node"><div class="talent-type">Sombras · Épico</div><div class="talent-name">Senhor das Sombras</div><div class="talent-desc">Invisibilidade permanente (quebrada apenas por ataque, restaurada como Ação Livre). Incorporação: 3×/combate. Nexo das Sombras: 5 pontos âncora.</div></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO IV — NÍVEL 20</div>
+            <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+              <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">A Última Sombra</div><div class="talent-desc">Você existe fora do plano material enquanto furtivo — nenhuma magia de adivinhação pode te localizar. Ataque Furtivo causa +Nível×3 de dano. Ao matar qualquer alvo em furtividade: todos os inimigos que o viram devem Save Medo DC 25 ou fogem.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">— ✦ —</span></div>
+
+<!-- MAGO, DRUIDA, BARDO, NECROMANTE — Resumidos com estrutura completa -->
+
+<section id="mago">
+  <div class="content-wrapper">
+    <div class="class-section mage">
+      <div class="class-header mage" style="position:relative;">
+        <div class="class-color-bar"></div>
+        <div class="class-header-icon" style="padding-left:1rem;">🔥</div>
+        <div class="class-header-text">
+          <div class="class-header-name">Mago</div>
+          <div class="class-header-motto">"A equação que dobra a realidade — cada fórmula, uma lei reescrita."</div>
+          <div class="class-header-stats">
+            <span class="stat-chip">PV: <strong>10 + MA_FOR + 1d6</strong></span>
+            <span class="stat-chip">MANA: <strong>150% da fórmula</strong></span>
+            <span class="stat-chip">ATR. PRIMÁRIO: <strong>INT</strong></span>
+            <span class="stat-chip">MAGIA: <strong>N0 – N6 (todos)</strong></span>
+          </div>
+          <div class="tag-row" style="margin-top:0.8rem;">
+            <span class="tag">Conhecimento Arcano</span><span class="tag">Resist. Mágica</span><span class="tag">Investigação</span><span class="tag">Estratégia</span><span class="tag">Forja Arcana</span>
+          </div>
+        </div>
+      </div>
+      <div class="class-body">
+        <p>O Mago é a classe de maior potencial ofensivo e utilitário do jogo, pagando com a fragilidade física mais extrema. Cada talento amplia sua capacidade de lançar mais magias, com maior eficiência, ou de especializar-se em uma escola de magia. Seus três ramos são: <strong>Evoker</strong> (dano massivo), <strong>Arcano Controlador</strong> (debuffs e controle de área) e <strong>Arquimago Teórico</strong> (eficiência de Mana e grimório).</p>
+        <div class="passive-box">
+          <div class="passive-box-title">⚡ Passiva de Classe — Arcano Voraz</div>
+          <p>Sempre que dissipa com sucesso uma magia inimiga: recupere <strong>Mana = Nível da magia × 3</strong>. Metamagia pode ser usada sem custo adicional <strong>1×/combate</strong>.</p>
+        </div>
+        <div class="talent-tree">
+          <div class="talent-tree-title">Árvore de Talentos — Mago</div>
+          <p style="font-size:0.85rem; opacity:0.7; margin-bottom:1.5rem; font-style:italic;">Três ramos: <strong>Evoker</strong> (dano puro) · <strong>Controlador</strong> (debuffs e área) · <strong>Arquimago</strong> (eficiência e grimório)</p>
+
+          <div style="margin-bottom:1rem;"><div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 2 — Escolha 1</div>
+          <div class="tree-talents" style="border-color:rgba(41,128,185,0.3);">
+            <div class="talent-node"><div class="talent-type">Evoker</div><div class="talent-name">Esculpir Magia</div><div class="talent-desc">Escolha até Nível ÷ 2 criaturas visíveis para serem <strong>imunes à sua próxima magia de área</strong>. Pague +1 Mana pela seleção.</div></div>
+            <div class="talent-node"><div class="talent-type">Controlador</div><div class="talent-name">Toque do Atordoamento</div><div class="talent-desc">Magias com save falho causam <strong>Desvantagem nos próximos saves do alvo</strong> por 1 rodada. Cumulativo até 2 rodadas.</div></div>
+            <div class="talent-node"><div class="talent-type">Arquimago</div><div class="talent-name">Grimório Expandido</div><div class="talent-desc">+10 magias no grimório. Aprenda magias <strong>1 nível acima do seu acesso atual</strong> como pesquisa (custo de tempo, não de sessão).</div></div>
+          </div></div>
+
+          <div style="margin-bottom:1rem;"><div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 4 — Escolha 1</div>
+          <div class="tree-talents" style="border-color:rgba(41,128,185,0.3);">
+            <div class="talent-node"><div class="talent-type">Evoker</div><div class="talent-name">Sobrecarga <span class="req-tag">REQ: Esculpir Magia</span></div><div class="talent-desc">1×/turno: pague +Nível da Magia em Mana para <strong>maximizar automaticamente 1 dado de dano</strong> da magia lançada.</div></div>
+            <div class="talent-node"><div class="talent-type">Controlador</div><div class="talent-name">Mente Penetrante <span class="req-tag">REQ: Toque do Atordoamento</span></div><div class="talent-desc">Magias de controle ignoram <strong>Resistência Mágica até 25%</strong>. DC de saves aumenta em +2 para alvos que já falharam em um save seu antes.</div></div>
+            <div class="talent-node"><div class="talent-type">Arquimago</div><div class="talent-name">Recuperação Arcana <span class="req-tag">REQ: Grimório Expandido</span></div><div class="talent-desc">1×/combate (Ação Livre): recupere <strong>Mana = Nível × 3</strong>. No nível 12, aumenta para Nível × 5.</div></div>
+          </div></div>
+
+          <div style="margin-bottom:1rem;"><div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO I — NÍVEL 5</div>
+          <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+            <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">Arcane Surge</div><div class="talent-desc">1×/combate: conjure 1 magia como <strong>Ação Livre (0 PA) sem custo de Mana</strong>. A magia deve ser de N3 ou inferior.</div></div>
+          </div></div>
+
+          <div style="margin-bottom:1rem;"><div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 6 — Escolha 1</div>
+          <div class="tree-talents" style="border-color:rgba(41,128,185,0.3);">
+            <div class="talent-node"><div class="talent-type">Evoker</div><div class="talent-name">Especialização Elemental</div><div class="talent-desc">Escolha 1 tipo de dano (fogo, gelo, elétrico, etc.): <strong>+MA_INT adicional ao dano</strong> desse tipo. Magias desse tipo ignoram Resistência até 25%.</div></div>
+            <div class="talent-node"><div class="talent-type">Controlador</div><div class="talent-name">Campo de Distorção</div><div class="talent-desc">Como Ação Menor, crie zona de 5m: inimigos que entrem devem <strong>Save DES DC 12+INT ou Lentidão</strong> (velocidade −6m) por 2 rodadas. Dura 5 rodadas. 2×/combate.</div></div>
+            <div class="talent-node"><div class="talent-type">Arquimago</div><div class="talent-name">Dupla Conjuração</div><div class="talent-desc">1×/combate: lance <strong>2 magias de N1 como 1 Ação Padrão</strong> (2 PA total, pague Mana de ambas). Os alvos podem ser diferentes.</div></div>
+          </div></div>
+
+          <div style="margin-bottom:1rem;"><div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 8 — Escolha 1</div>
+          <div class="tree-talents" style="border-color:rgba(41,128,185,0.3);">
+            <div class="talent-node"><div class="talent-type">Evoker</div><div class="talent-name">Pico de Poder <span class="req-tag">REQ: Sobrecarga</span></div><div class="talent-desc">1×/combate: ao lançar magia de dano, <strong>role todos os dados de dano 2× e use o maior resultado</strong> de cada dado individualmente.</div></div>
+            <div class="talent-node"><div class="talent-type">Controlador</div><div class="talent-name">Correntes Arcanas <span class="req-tag">REQ: Mente Penetrante</span></div><div class="talent-desc">Magias de controle de movimento (Slow, Web, Entangle, Hold): duração <strong>+2 rodadas</strong>. Alvos Imobilizados sofrem Desvantagem em saves contra suas magias.</div></div>
+            <div class="talent-node"><div class="talent-type">Arquimago</div><div class="talent-name">Metamagia Instintiva <span class="req-tag">REQ: Dupla Conjuração</span></div><div class="talent-desc">Aplique <strong>2 Metamagias simultaneamente</strong> a 1 magia (cada uma com seu custo). Arcane Surge permite 1 Metamagia gratuita na magia lançada.</div></div>
+          </div></div>
+
+          <div style="margin-bottom:1rem;"><div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 10 — Escolha 1</div>
+          <div class="tree-talents" style="border-color:rgba(41,128,185,0.3);">
+            <div class="talent-node"><div class="talent-type">Evoker</div><div class="talent-name">Dilúvio Arcano</div><div class="talent-desc">1×/combate: repita automaticamente a última magia de dano lançada (mesmo nível, metade do custo de Mana) como <strong>Ação Livre</strong>.</div></div>
+            <div class="talent-node"><div class="talent-type">Controlador</div><div class="talent-name">Restrição Permanente</div><div class="talent-desc">1 alvo por combate pode receber <strong>Maldição Arcana</strong>: −4 em todos os saves e Defesas pelo restante do combate. Não requer concentração.</div></div>
+            <div class="talent-node"><div class="talent-type">Arquimago</div><div class="talent-name">Reserva Profunda</div><div class="talent-desc">Mana Máxima <strong>×1,5 permanente</strong>. Magias de N1–N2 custam apenas 1 Mana (em vez do custo normal).</div></div>
+          </div></div>
+
+          <div style="margin-bottom:1rem;"><div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO II — NÍVEL 10</div>
+          <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+            <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">Arcane Surge Aprimorado</div><div class="talent-desc">Arcane Surge agora funciona com magias até <strong>N5</strong>. Ao usar Arcane Surge: todas as magias daquele turno têm custo reduzido em 50% de Mana.</div></div>
+          </div></div>
+
+          <div style="margin-bottom:1rem;"><div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 12 — Escolha 1</div>
+          <div class="tree-talents" style="border-color:rgba(41,128,185,0.3);">
+            <div class="talent-node"><div class="talent-type">Evoker</div><div class="talent-name">Tempestade Elemental</div><div class="talent-desc">1×/combate: por 3 rodadas, sua especialização elemental <strong>anima uma tempestade passiva</strong> — 2d8 dano elemental a todos inimigos em 10m no início de cada turno.</div></div>
+            <div class="talent-node"><div class="talent-type">Controlador</div><div class="talent-name">Embaralhamento Temporal</div><div class="talent-desc">1×/combate: reordene a iniciativa de até 3 alvos (aliados ou inimigos). Alvos afetados perdem 1 Reação no turno em que forem reposicionados.</div></div>
+            <div class="talent-node"><div class="talent-type">Arquimago</div><div class="talent-name">Spell Mastery</div><div class="talent-desc">2 magias de N2– tornam-se <strong>Maestria Arcana</strong>: custam 0 Mana e são lançadas como Ação Livre. Pode ser mudado após Descanso Longo.</div></div>
+          </div></div>
+
+          <div style="margin-bottom:1rem;"><div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 14 — Escolha 1</div>
+          <div class="tree-talents" style="border-color:rgba(41,128,185,0.3);">
+            <div class="talent-node"><div class="talent-type">Evoker</div><div class="talent-name">Extinção</div><div class="talent-desc">1×/dia: a próxima magia de dano que lançar tem <strong>dano automaticamente máximo em todos os dados</strong> e ignora todas as resistências e imunidades (exceto divinas).</div></div>
+            <div class="talent-node"><div class="talent-type">Controlador</div><div class="talent-name">Prisão Arcana</div><div class="talent-desc">1×/combate: Imobilize 1 alvo em bolha arcana (Save INT DC 16+INT nega). Imobilizado: 0 PA, Defesas = 10, Imune a outros controles. Dura 3 rodadas.</div></div>
+            <div class="talent-node"><div class="talent-type">Arquimago</div><div class="talent-name">Absorção Máxima</div><div class="talent-desc">Quando receber dano mágico: <strong>absorva até MA_INT × 5 de dano</strong> como Mana (em vez de PV). Sobrefluxo de Mana explode em 1d6 arcano por 5 Mana convertidos.</div></div>
+          </div></div>
+
+          <div style="margin-bottom:1rem;"><div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO III — NÍVEL 15</div>
+          <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+            <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">Soberania Arcana</div><div class="talent-desc">Magias N1–N2 custam <strong>0 Mana</strong> permanentemente. Arcane Surge recarrega a cada <strong>5 rodadas</strong>. Você não pode ser interrompido na conjuração a menos que seja incapacitado.</div></div>
+          </div></div>
+
+          <div style="margin-bottom:1rem;"><div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 16 — Escolha 1</div>
+          <div class="tree-talents" style="border-color:rgba(41,128,185,0.3);">
+            <div class="talent-node"><div class="talent-type">Evoker</div><div class="talent-name">Singularidade</div><div class="talent-desc">1×/combate: crie uma minisingularidade em ponto a 20m. Por 2 rodadas: todos inimigos em 8m são puxados 3m/rodada e sofrem 3d8 arcano no início de cada turno.</div></div>
+            <div class="talent-node"><div class="talent-type">Controlador</div><div class="talent-name">Teia de Fado</div><div class="talent-desc">Maldição Arcana agora afeta <strong>3 alvos simultaneamente</strong>. Ao matar alvo Maldito: Maldição salta para 1 inimigo adjacente automaticamente.</div></div>
+            <div class="talent-node"><div class="talent-type">Arquimago</div><div class="talent-name">Biblioteca Viva</div><div class="talent-desc">Você tem acesso a <strong>qualquer magia do grimório de aliados ou inimigos derrotados</strong> — aprenda após 1 hora de estudo de um grimório. Grimório total: ilimitado.</div></div>
+          </div></div>
+
+          <div style="margin-bottom:1rem;"><div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 18 — Escolha 1</div>
+          <div class="tree-talents" style="border-color:rgba(41,128,185,0.3);">
+            <div class="talent-node"><div class="talent-type">Evoker</div><div class="talent-name">Tempestade Final</div><div class="talent-desc">1×/dia: exploda sua reserva de Mana. Gaste até 60 Mana: causa esse valor em dano elemental dividido em raio de 15m (save DES DC 20+INT metade).</div></div>
+            <div class="talent-node"><div class="talent-type">Controlador</div><div class="talent-name">Anomalia Temporal</div><div class="talent-desc">1×/dia: por 3 rodadas, <strong>todos os inimigos em 20m agem por último na iniciativa</strong> e têm velocidade −6m. Aliados têm +2 PA durante este período.</div></div>
+            <div class="talent-node"><div class="talent-type">Arquimago</div><div class="talent-name">Corpo Arcano</div><div class="talent-desc">Sua forma fisica torna-se parcialmente mágica: <strong>Imunidade a dano de força e arcano</strong>. PV máximos +MA_INT × 5. Não precisa de componentes físicos para conjurar.</div></div>
+          </div></div>
+
+          <div style="margin-bottom:1rem;"><div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold-dark); margin-bottom:0.5rem; letter-spacing:0.2rem;">NÍVEL 20 — Escolha 1</div>
+          <div class="tree-talents" style="border-color:rgba(41,128,185,0.3);">
+            <div class="talent-node"><div class="talent-type">Evoker · Épico</div><div class="talent-name">Deus da Destruição</div><div class="talent-desc">Especialização Elemental: imunidade ao elemento + bônus de dano ×2. Extinção: 3×/dia. Tempestade Final: 3×/dia.</div></div>
+            <div class="talent-node"><div class="talent-type">Controlador · Épico</div><div class="talent-name">Arquiteto do Caos</div><div class="talent-desc">Prisão Arcana: ilimitada por combate. Maldição: 5 alvos. Anomalia Temporal: 3×/dia. Save DC todas magias +3.</div></div>
+            <div class="talent-node"><div class="talent-type">Arquimago · Épico</div><div class="talent-name">O Primeiro Archmage</div><div class="talent-desc">Mana regenera 10/rodada passivamente. Magias N1–N3: 0 Mana. Arcane Surge: ilimitado (1 magia grátis/turno até N5).</div></div>
+          </div></div>
+
+          <div style="margin-bottom:1rem;"><div style="font-family:'Fira Code',monospace; font-size:0.7rem; color:var(--gold); margin-bottom:0.5rem; letter-spacing:0.2rem;">★ MARCO IV — NÍVEL 20</div>
+          <div class="tree-talents" style="border-color:rgba(201,168,76,0.4);">
+            <div class="talent-node marco-node"><div class="talent-type">Marco · Automático</div><div class="talent-name">Archmage Absoluto</div><div class="talent-desc">Magias N1–N3 custam 0 Mana. 1×/dia: lance qualquer magia do grimório <strong>sem custo de Mana, PA ou tempo de conjuração</strong>. Você não pode ser afetado por magias de N4 ou inferior sem consentir.</div></div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">— ✦ —</span></div>
+
+<!-- DRUIDA, BARDO, NECROMANTE — estrutura condensada mas completa -->
+
+<section id="druida">
+  <div class="content-wrapper">
+    <div class="class-section druid">
+      <div class="class-header druid" style="position:relative;">
+        <div class="class-color-bar"></div>
+        <div class="class-header-icon" style="padding-left:1rem;">🌿</div>
+        <div class="class-header-text">
+          <div class="class-header-name">Druida</div>
+          <div class="class-header-motto">"A voz da natureza primordial — transformação, cura e chamado selvagem."</div>
+          <div class="class-header-stats">
+            <span class="stat-chip">PV: <strong>10 + MA_FOR + 1d8</strong></span>
+            <span class="stat-chip">MANA: <strong>100% da fórmula</strong></span>
+            <span class="stat-chip">ATR. PRIMÁRIO: <strong>SAB</strong></span>
+            <span class="stat-chip">MAGIA: <strong>N0 – N5 natural</strong></span>
+          </div>
+          <div class="tag-row" style="margin-top:0.8rem;">
+            <span class="tag">Sobrevivência</span><span class="tag">Medicina</span><span class="tag">Rastreamento</span><span class="tag">Percepção</span><span class="tag">Resist. Física</span>
+          </div>
+        </div>
+      </div>
+      <div class="class-body">
+        <p>O Druida é guardiã do equilíbrio. Seus três ramos refletem três relações com a natureza: <strong>Forma Selvagem</strong> (transformação animal e elemental), <strong>Curandeiro do Círculo</strong> (magia de cura e suporte em massa) e <strong>Convocador</strong> (aliados animais e criaturas naturais).</p>
+        <div class="passive-box">
+          <div class="passive-box-title">⚡ Passiva — Forma Selvagem</div>
+          <p>2×/dia, transforme-se em animal com PV ≤ Nível × 10. Mantém INT e SAB. Ao cair a 0 PV na forma, retorna à forma humana com PV originais. Magias não funcionam em forma animal básica.</p>
+        </div>
+
+        <div class="talent-tree">
+          <div class="talent-tree-title">Árvore de Talentos — Druida (Sumário)</div>
+          <p style="font-size:0.85rem; opacity:0.7; margin-bottom:1.5rem; font-style:italic;">Três ramos: <strong>Forma Selvagem</strong> · <strong>Curandeiro do Círculo</strong> · <strong>Convocador</strong></p>
+
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Nível</th><th>Forma Selvagem</th><th>Curandeiro do Círculo</th><th>Convocador</th></tr></thead>
+              <tbody>
+                <tr><td>2</td><td>Transformação Estendida — duração 2×</td><td>Toque de Vida — cura 1d8+SAB</td><td>Fala com Animais</td></tr>
+                <tr><td>4</td><td>Presas Poderosas — dano ×1,5 na forma</td><td>Cura em Aura — 1d6 a aliados em 5m</td><td>1º Aliado Animal permanente</td></tr>
+                <tr><td>★5</td><td colspan="3">Marco I — Forma Elemental: transforme-se em Elemental com DR Natural = Nível</td></tr>
+                <tr><td>6</td><td>Manter Magia — conjure N1–N2 na forma</td><td>Regeneração Natural — 2 PV/rodada</td><td>Convocação Rápida (Ação Menor)</td></tr>
+                <tr><td>8</td><td>Forma Dupla — 4×/dia</td><td>Antídoto Divino — remove qualquer veneno</td><td>Alcateia (1d4 animais)</td></tr>
+                <tr><td>10</td><td>Forma Épica — Gigante ou Dragão CR ≤ Nível÷4</td><td>Cura em Massa — 2d8+SAB a todos em 10m</td><td>Elo Telepático — controle mental dos aliados</td></tr>
+                <tr><td>★10</td><td colspan="3">Marco II — Círculo Unido: Forma Selvagem + Magia funcionam juntos por 3 rodadas/dia</td></tr>
+                <tr><td>12</td><td>Fusão Elemental — Forma Elemental 5×/dia</td><td>Ressurreição Natural — revive com 50% PV</td><td>Convoca Planta Guardião (enraiza inimigos)</td></tr>
+                <tr><td>14</td><td>Mente da Besta — forma não quebra com dano mágico</td><td>Barreira de Vida — escudo de PV em aliado</td><td>Mestre dos Animais (1d6+2 aliados)</td></tr>
+                <tr><td>★15</td><td colspan="3">Marco III — Uma com a Natureza: Forma Selvagem ilimitada, Regeneração 5 PV/rodada em natureza</td></tr>
+                <tr><td>16</td><td>Instinto Predatório — +Nível ao dano na forma</td><td>Oráculo de Cura — prevê dano futuro, pré-cura</td><td>Convocação Épica (CR ≤ Nível÷2)</td></tr>
+                <tr><td>18</td><td>Metamorfo — transforme-se em qualquer criatura</td><td>Ressurreição Plena — revive até 3 aliados</td><td>Exército da Floresta (3d8 criaturas)</td></tr>
+                <tr><td>20</td><td>Avatar da Besta — Forma = CR igual ao Nível</td><td>Curandeiro Eterno — cura não tem custo de Mana</td><td>Senhorio da Terra — natureza obedece</td></tr>
+                <tr><td>★20</td><td colspan="3">Marco IV — Druida Primordial: Forma Selvagem sem limites, magias N1–N3 custam 0 Mana, convoque 4d10 criaturas</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">— ✦ —</span></div>
+
+<section id="bardo">
+  <div class="content-wrapper">
+    <div class="class-section bard">
+      <div class="class-header bard" style="position:relative;">
+        <div class="class-color-bar"></div>
+        <div class="class-header-icon" style="padding-left:1rem;">🎭</div>
+        <div class="class-header-text">
+          <div class="class-header-name">Bardo</div>
+          <div class="class-header-motto">"A palavra que inspira e destrói — arte, carisma e magia de todos os sabores."</div>
+          <div class="class-header-stats">
+            <span class="stat-chip">PV: <strong>10 + MA_FOR + 1d8</strong></span>
+            <span class="stat-chip">MANA: <strong>80% da fórmula</strong></span>
+            <span class="stat-chip">ATR. PRIMÁRIO: <strong>CAR</strong></span>
+            <span class="stat-chip">MAGIA: <strong>N0 – N4 + 3 de N5</strong></span>
+          </div>
+          <div class="tag-row" style="margin-top:0.8rem;">
+            <span class="tag">Diplomacia</span><span class="tag">Intimidação</span><span class="tag">Liderança</span><span class="tag">Enganação</span><span class="tag">Conhecimento Arcano</span>
+          </div>
+        </div>
+      </div>
+      <div class="class-body">
+        <p>O Bardo é o multiplicador de poder de qualquer grupo. Seus três ramos são: <strong>Inspirador</strong> (buffs e performance de batalha), <strong>Sabotador</strong> (debuffs e manipulação) e <strong>Segredos Mágicos</strong> (acesso a magias de qualquer lista).</p>
+        <div class="passive-box">
+          <div class="passive-box-title">⚡ Passiva — Inspiração Bárdica</div>
+          <p>No início de cada combate, distribua MA_CAR dados de Inspiração (d6 → d8 no N10 → d10 no N15) a aliados. Um aliado pode adicionar 1 dado ao resultado de qualquer teste antes de rolar.</p>
+        </div>
+
+        <div class="talent-tree">
+          <div class="talent-tree-title">Árvore de Talentos — Bardo (Sumário)</div>
+          <p style="font-size:0.85rem; opacity:0.7; margin-bottom:1.5rem; font-style:italic;">Três ramos: <strong>Inspirador</strong> · <strong>Sabotador</strong> · <strong>Segredos Mágicos</strong></p>
+
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Nível</th><th>Inspirador</th><th>Sabotador</th><th>Segredos Mágicos</th></tr></thead>
+              <tbody>
+                <tr><td>2</td><td>Palavra de Encorajamento — +1d6 a ataques de aliado</td><td>Canção do Lamento — −2 saves inimigo</td><td>Jack de Todos — perícias sem treinamento sem penalidade</td></tr>
+                <tr><td>4</td><td>Palavra de Cura — cura 1d8+CAR (Ação Livre, 2×/combate)</td><td>Acorde Dissonante — interrompe concentração inimiga</td><td>Segredo I — 2 magias de qualquer classe (N2–)</td></tr>
+                <tr><td>★5</td><td colspan="3">Marco I — Inspiração de Batalha: Inspiração +MA_CAR, pode ser usada em Reações também</td></tr>
+                <tr><td>6</td><td>Canção de Moral — +2 ataques e Defesas a aliados em 15m</td><td>Melodia de Medo — Save SAB ou Amedrontado</td><td>Habilidade Universal — aprenda qualquer perícia nível 3</td></tr>
+                <tr><td>8</td><td>Canto de Cura — 2d8+CAR a todos em 10m (Ação Padrão)</td><td>Aria do Ódio — 2 inimigos se atacam mutuamente</td><td>Segredo II — 2 magias de qualquer classe (N3–)</td></tr>
+                <tr><td>10</td><td>Epopeia de Batalha — +4 ataques, Defesas e Iniciativa por 5 rodadas</td><td>Sinfonia Sombria — Confuso por 3 rodadas (Save SAB)</td><td>Conhecedor Universal — todas as línguas e culturas</td></tr>
+                <tr><td>★10</td><td colspan="3">Marco II — Grande Concerto: 1×/combate, todos os talentos de Inspiração funcionam sem custo de PA por 2 rodadas</td></tr>
+                <tr><td>12</td><td>Hino da Ressurreição — revive aliado com 1d10+CAR PV</td><td>Maldição de Babel — alvo não consegue conjurar por 3 rodadas</td><td>Segredo III — 2 magias de qualquer classe (N4–)</td></tr>
+                <tr><td>14</td><td>Canto de Vitória — ao matar inimigo, aliados recuperam 1d8 PV</td><td>Dança da Morte — alvo dança (como Irresistible Dance)</td><td>Polimata Arcano — aprenda qualquer habilidade de classe N1–N5</td></tr>
+                <tr><td>★15</td><td colspan="3">Marco III — Inspiração Lendária: dados de Inspiração sobem para d12, podem ser usados após o roll</td></tr>
+                <tr><td>16</td><td>Baluarte da Esperança — imunidade a Medo a aliados em 20m</td><td>Requiem — dano psíquico 4d8+CAR (sem save) 1×/combate</td><td>Segredo IV — 4 magias de qualquer classe (N5–)</td></tr>
+                <tr><td>18</td><td>Canção Épica — buffa um aliado como Herói: +4 PA, Imunidade, 1 min</td><td>Última Canção — 1 alvo salva ou dorme até receber dano</td><td>Grimório Infinito — qualquer magia existente (N5–)</td></tr>
+                <tr><td>20</td><td>Maestro Eterno — Inspiração: 10 dados/combate, recarrega a cada 3 rodadas</td><td>Canção da Dissolução — dissolve magias ativas em área 15m</td><td>Segredos Supremos — 2 magias de N6 de qualquer lista</td></tr>
+                <tr><td>★20</td><td colspan="3">Marco IV — Bardo Lendário: Inspiração ilimitada, qualquer aliado pode usar seu dado de Inspiração em qualquer teste, Segredos Mágicos: aprenda qualquer habilidade de qualquer classe</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">— ✦ —</span></div>
+
+<section id="necromante">
+  <div class="content-wrapper">
+    <div class="class-section necro">
+      <div class="class-header necro" style="position:relative; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+        <div class="class-color-bar" style="background:#7f8c8d;"></div>
+        <div class="class-header-icon" style="padding-left:1rem;">☠️</div>
+        <div class="class-header-text">
+          <div class="class-header-name">Necromante</div>
+          <div class="class-header-motto">"A linha entre o vivo e o morto — exércitos, drenagem e o segredo da imortalidade."</div>
+          <div class="class-header-stats">
+            <span class="stat-chip">PV: <strong>10 + MA_FOR + 1d6</strong></span>
+            <span class="stat-chip">MANA: <strong>120% da fórmula</strong></span>
+            <span class="stat-chip">ATR. PRIMÁRIO: <strong>INT ou CAR</strong></span>
+            <span class="stat-chip">MAGIA: <strong>N0 – N6 (sombria)</strong></span>
+          </div>
+          <div class="tag-row" style="margin-top:0.8rem;">
+            <span class="tag">Conhecimento Arcano</span><span class="tag">Medicina (Necroses)</span><span class="tag">Intimidação</span><span class="tag">Investigação</span><span class="tag">Resist. Mental</span>
+          </div>
+        </div>
+      </div>
+      <div class="class-body">
+        <p>O Necromante comanda o além. Seus mortos-vivos são extensões de sua vontade, e cada inimigo morto é um recurso potencial. Seus três ramos: <strong>Senhor dos Mortos</strong> (exército de mortos-vivos), <strong>Vampiro Arcano</strong> (drenagem de vida e recursos) e <strong>Lich em Potencial</strong> (imortalidade e poderes além da morte).</p>
+        <div class="passive-box">
+          <div class="passive-box-title">⚡ Passiva — Drenagem de Vida</div>
+          <p>Cada morto-vivo sob seu controle regenera <strong>1 Mana/rodada</strong> para você (máx Nível × 2). DC de magias de Necromancia: <strong>+2 permanente</strong>.</p>
+        </div>
+
+        <div class="talent-tree">
+          <div class="talent-tree-title">Árvore de Talentos — Necromante (Sumário)</div>
+          <p style="font-size:0.85rem; opacity:0.7; margin-bottom:1.5rem; font-style:italic;">Três ramos: <strong>Senhor dos Mortos</strong> · <strong>Vampiro Arcano</strong> · <strong>Lich em Potencial</strong></p>
+
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Nível</th><th>Senhor dos Mortos</th><th>Vampiro Arcano</th><th>Lich em Potencial</th></tr></thead>
+              <tbody>
+                <tr><td>2</td><td>Animar Mortos — controle até MA_INT mortos-vivos</td><td>Toque Drenador — 2d6 necrótico, cura você</td><td>Resistência da Morte — +4 saves contra morte</td></tr>
+                <tr><td>4</td><td>Mortos Fortalecidos — PV de mortos-vivos ×1,5</td><td>Vampirismo Arcano — drena Mana de conjuradores</td><td>Maldição da Morte — alvo perde −2 saves por rodada</td></tr>
+                <tr><td>★5</td><td colspan="3">Marco I — Domínio dos Mortos: mortos-vivos ganham +4 Defesas e +2d6 dano</td></tr>
+                <tr><td>6</td><td>Exército em Marcha — mortos agem com 3 PA cada</td><td>Sugador de Almas — absorve PV máximo do alvo</td><td>Visão da Morte — veja auras de mortos e moribundos</td></tr>
+                <tr><td>8</td><td>Ressurreição em Batalha — reanime morto em combate (Ação Padrão)</td><td>Dreno em Massa — drene até 3 alvos simultaneamente</td><td>Forma Semi-Morta — Resistência 25% a dano físico</td></tr>
+                <tr><td>10</td><td>Legião — limite de mortos = MA_INT × 2</td><td>Explosão Vital — ao matar: exploda vida em área 5m</td><td>Phylacterium — crie objeto de vinculação de alma</td></tr>
+                <tr><td>★10</td><td colspan="3">Marco II — Senhor Absoluto dos Mortos: mortos-vivos com CR ≤ Nível podem ser animados</td></tr>
+                <tr><td>12</td><td>Mortos Lendários — anime criaturas únicas como mortos-vivos</td><td>Vampirismo Total — drene uma vida completa/dia</td><td>Ânima Imortal — retorne de morte 1×/semana</td></tr>
+                <tr><td>14</td><td>Comandante de Ossos — 3 tipos de mortos distintos no exército</td><td>Nexo de Almas — correntes entre você e alvos: drene passivamente</td><td>Forma Etérea — 1×/dia por 10 min, etéreo</td></tr>
+                <tr><td>★15</td><td colspan="3">Marco III — Transcendência Necróptica: imune a Veneno, Doença e Charme. Seus mortos-vivos ignoram DR natural de inimigos</td></tr>
+                <tr><td>16</td><td>Exército Lendário — mortos-vivos com PV iguais ao original</td><td>Dreno Eterno — Vampirismo Total: 3×/dia</td><td>Corpo de Sombra — incorpore sombra: Resistência 50% físico</td></tr>
+                <tr><td>18</td><td>Apocalipse dos Mortos — convoque 3d10 mortos-vivos</td><td>Roubo de Essência — roube habilidades passivas do alvo por 1 hora</td><td>Quase-Lich — imunidade a Velhice e Doenças, PV máx ×1,5</td></tr>
+                <tr><td>20</td><td>Rei dos Mortos — mortos-vivos como exércitos reais</td><td>Vampiro Lendário — drena tudo ao toque</td><td>Imortal — impossível morrer por dano comum. Só Magia Sagrada ou Destruição do Phylacterium</td></tr>
+                <tr><td>★20</td><td colspan="3">Marco IV — Lich: Seu Phylacterium vincula sua alma. Imune a morte por dano. Mortos-vivos ilimitados. Magias de Necromancia N1–N3 custam 0 Mana.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">— ✦ —</span></div>
+
+<!-- REGRAS ADICIONAIS -->
+<section>
+  <div class="content-wrapper">
+    <h2 class="section-title">Regras de Multiclasse</h2>
+    <p>O sistema HERANÇA permite multiclasse limitada para preservar o balanceamento. Um personagem pode investir em uma segunda classe seguindo estas regras:</p>
+    <div class="table-wrapper">
+      <table>
+        <thead><tr><th>Nível</th><th>Opção de Multiclasse</th><th>Custo</th><th>Limitação</th></tr></thead>
+        <tbody>
+          <tr><td>5</td><td>Habilidade Passiva de 2ª Classe</td><td>3 Marcos de Poder</td><td>Sem talentos da 2ª classe ainda</td></tr>
+          <tr><td>10</td><td>Talentos da 2ª Classe (Camadas 1–2)</td><td>5 Marcos de Poder</td><td>Sem Marco da 2ª classe</td></tr>
+          <tr><td>15</td><td>Talentos até Camada 4</td><td>8 Marcos de Poder</td><td>Sem Marcos e sem PV/Mana da 2ª classe</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warning-box">
+      <div class="info-box-title">⚠ Restrições de Multiclasse</div>
+      <p>PV e Mana não se misturam — o personagem usa sempre os da sua classe primária. Marcos de Poder de multiclasse não se acumulam com os da classe principal: quando o custo de Marcos for pago, eles vêm dos Marcos que o personagem <em>já ganhou</em>, e ele perde acesso a um Marco de benefício da sua classe primária para aquele nível.</p>
+    </div>
+
+    <h2 class="section-title">Compatibilidade com o Sistema de Progressão</h2>
+    <p>As classes do HERANÇA foram projetadas para funcionar em perfeita harmonia com o sistema de Marcos de Poder do Capítulo V. Os Marcos de Classe são habilidades <em>adicionais</em> concedidas nos níveis 5, 10, 15 e 20 — eles coexistem com os bônus gerais de Marco (como +1 PA/turno no Nível 15 para todos os personagens).</p>
+    <div class="info-box">
+      <div class="info-box-title">📖 Nota do Sistema</div>
+      <p>No Nível 5 de Marco, por exemplo: o personagem recebe <strong>tanto</strong> o Marco Geral (Capítulo V: +slots/+ataque/+DR) <strong>quanto</strong> o Marco I de sua Classe (como o Surto de Combate do Guerreiro). Os benefícios são cumulativos.</p>
+    </div>
+  </div>
+</section>
+
+
 <!-- ═══════════════════════════ FOOTER ═══ -->
 <footer>
   <div class="footer-logo">HERANÇA</div>
   <p>Sistema Fechado de RPG de Mesa Quantificado</p>
-  <p style="margin-top:1rem; opacity:0.4; font-family:'Fira Code',monospace; font-size:0.75rem;">Livro de Regras Completo · 170 Magias · 10 Capítulos</p>
+  <p style="margin-top:1rem; opacity:0.4; font-family:'Fira Code',monospace; font-size:0.75rem;">Livro de Regras Completo · 170 Magias · 10 Capítulos · 8 Classes · Sistema Completo</p>
   <div style="margin-top:2rem; width:200px; height:1px; background:linear-gradient(to right,transparent,var(--gold-dark),transparent); margin-left:auto; margin-right:auto;"></div>
   <p style="margin-top:1rem; opacity:0.3; font-size:0.8rem;">Sistema proprietário · Todos os direitos reservados</p>
 </footer>
